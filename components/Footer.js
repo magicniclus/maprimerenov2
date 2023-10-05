@@ -23,30 +23,39 @@ const Footer = () => {
     <footer className="w-full max-w-[1250px] px-5 py-10 lg:px-20 lg:py-10 mx-auto flexl justify-between items-center shadow-sm bg-gray-50">
       <div className="flex justify-between md:flex-row flex-col">
         <div>
-          <a className="text-primary text-lg" href="/">
+          <a className="text-primary text-2xl" href="/">
             Maprimerenov-info.org
           </a>
           <div className="flex mt-7">
-            <img
-              src="/images/logos/maprimerenov.png"
-              alt="maprimerenov"
-              className="h-8 md:h-12 w-auto "
-            />
-            <img
-              src="/images/logos/CEE.png"
-              alt="CEE"
-              className="h-8 md:h-12 w-auto ml-3"
-            />
-            <img
-              src="/images/logos/france-renov.png"
-              alt="francerenov"
-              className="h-8 md:h-12 w-auto ml-3"
-            />
-            <img
-              src="/images/logos/RGE.png"
-              alt="RGE"
-              className="h-8 md:h-12 w-auto ml-3"
-            />
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3">
+              <img
+                src="/images/logos/maprimerenov.png"
+                alt="maprimerenov"
+                className="h-8 md:h-12 w-auto "
+              />
+            </div>
+
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3">
+              <img
+                src="/images/logos/CEE.png"
+                alt="CEE"
+                className="h-8 md:h-12 w-auto"
+              />
+            </div>
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3">
+              <img
+                src="/images/logos/france-renov.png"
+                alt="francerenov"
+                className="h-8 md:h-12 w-auto"
+              />
+            </div>
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3">
+              <img
+                src="/images/logos/RGE.png"
+                alt="RGE"
+                className="h-8 md:h-12 w-auto"
+              />
+            </div>
           </div>
         </div>
         <div className="flex md:flex-row flex-col md:mt-0 mt-10">
