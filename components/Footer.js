@@ -20,7 +20,7 @@ const navigation = {
 
 const Footer = () => {
   return (
-    <footer className="w-full max-w-[1250px] px-5 py-10 lg:px-20 lg:py-10 mx-auto flexl justify-between items-center shadow-sm bg-gray-50">
+    <footer className="w-full max-w-[1250px] px-5 py-10 lg:px-20 lg:py-10 mx-auto flexl justify-between items-center shadow-lg bg-gray-50">
       <div className="flex justify-between md:flex-row flex-col">
         <div>
           <a className="text-primary text-2xl" href="/">
