@@ -42,16 +42,16 @@ const Hero = (props) => {
           </div>
           <div className="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 my-auto lg:mt-10 lg:w-screen">
             <div
-              className="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-primary/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36"
+              className="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-primary/10 ring-1 ring-indigo-50 lg:-mr-36"
               aria-hidden="true"
             />
-            <div className="shadow-lg md:rounded-3xl">
-              <div className="bg-primary [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
+            <div className="shadow-lg lg:rounded-3xl">
+              <div className="bg-primary [clip-path:inset(0)] lg:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
                 <div
-                  className="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36"
+                  className="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white lg:ml-36"
                   aria-hidden="true"
                 />
-                <div className="relative px-6 py-6 sm:pt-6 md:pl-6 md:pr-0 flex justify-center items-center">
+                <div className="relative px-6 py-6 sm:pt-6 lg:pl-6 lg:pr-0 flex justify-center items-center">
                   <img
                     src={props.img || "/images/imgs/istock.png"}
                     alt="istock"
