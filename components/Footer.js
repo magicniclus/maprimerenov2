@@ -10,7 +10,7 @@ const navigation = {
     { name: "Contact", href: "#" },
     { name: "Mon Espace", href: "#" },
     { name: "Espace Pro", href: "#" },
-    { name: "F.A.Q", href: "#" },
+    { name: "F.A.Q", href: "/FAQ" },
   ],
   Légale: [
     { name: "Mentions légales", href: "#" },
