@@ -35,12 +35,12 @@ const Entreprise = () => {
             Vous êtes un particulier ?
           </h2>
           <div className="mt-5">
-            <ButtonWithBorder value="Tester mon élibilité" link="/estimaiton" />
+            <ButtonWithBorder value="Tester mon élibilité" link="/simulateur" />
           </div>
         </div>
       </div>
       <form
-        className="w-full lg:w-6/12 bg-white lg:shadow-md py-10 px-5"
+        className="w-full lg:w-6/12 bg-white lg:shadow-md py-10 lg:px-10 px-7"
         onSubmit={handleSubmit}
       >
         <h2 className="text-3xl text-dark font-semibold mx-auto">
