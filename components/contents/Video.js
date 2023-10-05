@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonWithBorder from "../button/ButtonWithBorder";
+import ButtonGreen from "../button/ButtonGreen";
 
 const step = [
   "Estimation des traveaux",
@@ -24,7 +25,7 @@ const Video = () => {
           </div>
         ))}
         <div className="mt-10">
-          <ButtonWithBorder />
+          <ButtonGreen value="Tester mon élibilité" />
         </div>
       </div>
       <div className="rounded-md overflow-hidden w-full lg:w-6/12 lg:mt-0 mt-10">
