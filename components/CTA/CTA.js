@@ -2,7 +2,7 @@ import React from "react";
 
 const CTA = () => {
   return (
-    <div className="bg-light">
+    <div className="bg-light w-full max-w-[1250px] px-5 py-10 lg:px-20 lg:py-8 mx-auto">
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-dark sm:text-4xl">
