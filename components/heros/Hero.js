@@ -4,7 +4,7 @@ const Hero = (props) => {
   return (
     <section className="bg-white z-10">
       <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
-        <div className="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-20 lg:py-26">
+        <div className="mx-auto max-w-7xl pb-24 lg:pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-20 lg:py-26">
           <div className="px-6 lg:px-0 lg:pt-4">
             <div className="mx-auto max-w-2xl">
               <div className="max-w-lg">
