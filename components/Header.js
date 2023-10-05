@@ -8,7 +8,10 @@ const Header = () => {
         Maprimerenov-info.org
       </a>
       <div className="flex items-center md:mt-0 mt-7">
-        <a className="text-primary text-sm max-w-xs text-center mr-5" href="#">
+        <a
+          className="text-primary text-sm max-w-xs text-center mr-5"
+          href="/entreprise"
+        >
           VOUS ÊTES UN <br />
           PROFESSIONNEL ?
         </a>
