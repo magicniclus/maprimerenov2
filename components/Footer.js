@@ -2,8 +2,8 @@ import React from "react";
 
 const navigation = {
   Solutions: [
-    { name: "Simulateur", href: "#" },
-    { name: "Devenir Partenaire", href: "#" },
+    { name: "Simulateur", href: "/simulateur" },
+    { name: "Devenir Partenaire", href: "/entreprise" },
     { name: "Articles", href: "#" },
   ],
   Contact: [
@@ -26,30 +26,29 @@ const Footer = () => {
           <a className="text-primary text-2xl" href="/">
             Maprimerenov-info.org
           </a>
-          <div className="flex mt-7">
-            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3">
+          <div className="flex flex-wrap mt-7">
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3 mt-2">
               <img
                 src="/images/logos/maprimerenov.png"
                 alt="maprimerenov"
                 className="h-8 md:h-12 w-auto "
               />
             </div>
-
-            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3">
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3 mt-2">
               <img
                 src="/images/logos/CEE.png"
                 alt="CEE"
                 className="h-8 md:h-12 w-auto"
               />
             </div>
-            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3">
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3 mt-2">
               <img
                 src="/images/logos/france-renov.png"
                 alt="francerenov"
                 className="h-8 md:h-12 w-auto"
               />
             </div>
-            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3">
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3 mt-2">
               <img
                 src="/images/logos/RGE.png"
                 alt="RGE"
@@ -59,7 +58,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex md:flex-row flex-col md:mt-0 mt-10">
-          <div className="mr-20">
+          <div className="md:mr-20">
             <h3 className="text-dark text-sm font-bold mb-3">Solutions</h3>
             <ul className="text-dark ">
               {navigation.Solutions.map((item) => (
@@ -74,7 +73,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="mr-20 md:mt-0 mt-5">
+          <div className="md:mr-20 md:mt-0 mt-5">
             <h3 className="text-dark text-sm font-bold mb-3">Contact</h3>
             <ul className="text-dark transition-all duration-300 ease-in-out">
               {navigation.Contact.map((item) => (
