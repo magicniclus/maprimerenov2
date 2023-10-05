@@ -4,6 +4,7 @@ import Basic from "../../layout/Basic";
 import Entreprise from "../../components/forms/Entreprise";
 import FAQ from "../../components/FAQ/FAQ";
 import Cards from "../../components/contents/Cards";
+import CTA from "../../components/CTA/CTA";
 
 const index = () => {
   return (
@@ -17,6 +18,7 @@ const index = () => {
       <Entreprise />
       <Cards />
       <FAQ />
+      <CTA />
     </Basic>
   );
 };
