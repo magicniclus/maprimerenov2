@@ -3,63 +3,74 @@ import FormLanding from "../../../../layout/FormLanding";
 import LittleCardWithImage from "../cards/LittleCardWithImage";
 
 const Travaux = () => {
-  const [cardSelected, setCardSelected] = useState(null);
+  const [cardSelected, setCardSelected] = useState([]);
+
   const clickManager = (newValue) => {
-    if (cardSelected === newValue) {
-      setCardSelected(null);
+    if (cardSelected.includes(newValue)) {
+      // Si la valeur est déjà sélectionnée, la supprimer du tableau
+      setCardSelected((prevState) =>
+        prevState.filter((value) => value !== newValue)
+      );
     } else {
-      setCardSelected(newValue);
+      // Sinon, ajouter la valeur au tableau
+      setCardSelected((prevState) => [...prevState, newValue]);
     }
   };
   return (
     <FormLanding title="Quel est votre principale source de chauffage actuellement :*">
       <LittleCardWithImage
-        src="/images/icons/electricite.png"
-        alt="electicité"
-        title="Electrique"
+        src="/images/icons/isolation.png"
+        alt="isolation"
+        title="Isolation"
         onClick={() => clickManager(1)}
-        selectedValue={cardSelected}
+        selectedValue={cardSelected.includes(1)}
         value={1}
+        type="multit"
       />
       <LittleCardWithImage
-        src="/images/icons/fioul.png"
-        alt="electicité"
-        title="Electrique"
+        src="/images/icons/menuiserie.png"
+        alt="menuiserie"
+        title="Menuiserie"
         onClick={() => clickManager(2)}
-        selectedValue={cardSelected}
+        selectedValue={cardSelected.includes(2)}
         value={2}
+        type="multit"
       />
       <LittleCardWithImage
-        src="/images/icons/gaz.png"
-        alt="electicité"
-        title="Electrique"
+        src="/images/icons/vmc.png"
+        alt="Vmc double flux"
+        title="Vmc double flux"
         onClick={() => clickManager(3)}
-        selectedValue={cardSelected}
+        selectedValue={cardSelected.includes(3)}
         value={3}
+        type="multit"
       />
       <LittleCardWithImage
-        src="/images/icons/feu.png"
-        alt="electicité"
-        title="Electrique"
+        src="/images/icons/pompe.png"
+        alt="pompe à chaleur"
+        title="Pompe à chaleur"
         onClick={() => clickManager(4)}
-        selectedValue={cardSelected}
+        selectedValue={cardSelected.includes(4)}
         value={4}
+        type="multit"
       />
       <LittleCardWithImage
         src="/images/icons/chauffage.png"
-        alt="electicité"
-        title="Electrique"
+        alt="Chauffage Pële"
+        title="Chauffage Pële"
         onClick={() => clickManager(5)}
-        selectedValue={cardSelected}
+        selectedValue={cardSelected.includes(5)}
         value={5}
+        type="multit"
       />
       <LittleCardWithImage
-        src="/images/icons/charbon.png"
-        alt="electicité"
-        title="Electrique"
+        src="/images/icons/solaire.png"
+        alt="Solaire chauffe eau"
+        title="Solaire chauffe eau"
         onClick={() => clickManager(6)}
-        selectedValue={cardSelected}
+        selectedValue={cardSelected.includes(6)}
         value={6}
+        type="multit"
       />
     </FormLanding>
   );
