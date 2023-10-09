@@ -3,7 +3,7 @@ import ButtonWithBorder from "../button/ButtonWithBorder";
 import ButtonGreen from "../button/ButtonGreen";
 
 const step = [
-  "Estimation des traveaux",
+  "Estimation des travaux",
   "Validation du projet",
   "Elaboration et dépot du projet",
   "Suivi de la  réalisation des travaux",
