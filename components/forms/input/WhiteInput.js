@@ -1,6 +1,16 @@
 import React from "react";
 
 const WhiteInput = ({ type, placeholder, value, setValue }) => {
+  //Regex
+  const zipCodeRegex = /^[0-9]{5}$/;
+
+  //Regex test
+  const handleZipCodeChange = (e) => {
+    const inputValue = e.target.value;
+
+    handleChange(e);
+  };
+
   const handleChange = (e) => {
     const inputValue = e.target.value;
     if (inputValue !== "") {
@@ -24,6 +34,8 @@ const WhiteInput = ({ type, placeholder, value, setValue }) => {
         return "tel";
       case "date":
         return "date";
+      case "zipCode":
+        return "text";
       default:
         return "text";
     }
@@ -33,7 +45,7 @@ const WhiteInput = ({ type, placeholder, value, setValue }) => {
     <input
       type={getInputType(type)}
       value={value !== null ? value : ""}
-      onChange={handleChange}
+      onChange={type === "zipCode" ? handleZipCodeChange : handleChange}
       placeholder={placeholder || ""}
       onWheel={(e) => e.preventDefault()}
       className="bg-white text-dark p-2 rounded outline-none placeholder-dark/50 min-w-[400px]"
