@@ -9,12 +9,14 @@ const LittleCardWithImage = ({
   value,
   selectedValue,
   margin,
+  type,
 }) => {
-  const isSelected = value === selectedValue;
+  const isSelected =
+    type === "multit" ? (value = selectedValue) : value === selectedValue;
 
   return (
     <div
-      className={`relative flex flex-col items-center justify-between py-3 w-40 h-30 bg-white hover:shadow-md transition-all duration-300 ease-in-out rounded-md mt-3 cursor-pointer ${
+      className={`relative flex flex-col items-center justify-between py-3 w-full sm:w-40 h-30 bg-white hover:shadow-md transition-all duration-300 ease-in-out rounded-md mt-3 cursor-pointer ${
         margin ? "mr-3" : null
       } ${isSelected ? "border border-primary" : "border-2 border-light"}`}
       onClick={onClick}
@@ -31,7 +33,7 @@ const LittleCardWithImage = ({
         )}
       </div>
       <img src={src} alt={alt} className="h-10" />
-      <p className="mt-2 font-light">{title}</p>
+      <p className="mt-2 font-light text-center">{title}</p>
     </div>
   );
 };
