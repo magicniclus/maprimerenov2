@@ -13,7 +13,7 @@ const CardWithImage = ({
 
   return (
     <div
-      className={`relative flex flex-col items-center justify-between py-10 w-40 h-48 bg-white hover:shadow-md transition-all duration-300 ease-in-out rounded-md ${
+      className={`relative flex flex-col items-center justify-between py-10 w-40 h-48 bg-white hover:shadow-md transition-all duration-300 ease-in-out rounded-md cursor-pointer ${
         margin ? "mr-3" : null
       } ${isSelected ? "border border-primary" : "border-2 border-light"}`}
       onClick={onClick}
