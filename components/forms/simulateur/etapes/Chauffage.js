@@ -23,40 +23,40 @@ const Chauffage = () => {
       />
       <LittleCardWithImage
         src="/images/icons/fioul.png"
-        alt="electicité"
-        title="Electrique"
+        alt="fioul"
+        title="Fioul"
         onClick={() => clickManager(2)}
         selectedValue={cardSelected}
         value={2}
       />
       <LittleCardWithImage
         src="/images/icons/gaz.png"
-        alt="electicité"
-        title="Electrique"
+        alt="gaz"
+        title="Gaz"
         onClick={() => clickManager(3)}
         selectedValue={cardSelected}
         value={3}
       />
       <LittleCardWithImage
         src="/images/icons/feu.png"
-        alt="electicité"
-        title="Electrique"
+        alt="feu"
+        title="Feu"
         onClick={() => clickManager(4)}
         selectedValue={cardSelected}
         value={4}
       />
       <LittleCardWithImage
         src="/images/icons/chauffage.png"
-        alt="electicité"
-        title="Electrique"
+        alt="chauffage"
+        title="Chauffage"
         onClick={() => clickManager(5)}
         selectedValue={cardSelected}
         value={5}
       />
       <LittleCardWithImage
         src="/images/icons/charbon.png"
-        alt="electicité"
-        title="Electrique"
+        alt="charbon"
+        title="Charbon"
         onClick={() => clickManager(6)}
         selectedValue={cardSelected}
         value={6}
