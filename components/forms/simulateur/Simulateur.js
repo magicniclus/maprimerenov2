@@ -4,6 +4,8 @@ import AnneeDeConstruction from "./etapes/AnneeDeConstruction";
 import Surface from "./etapes/Surface";
 import Chauffage from "./etapes/Chauffage";
 import Travaux from "./etapes/Travaux";
+import EtapeDuProjet from "./etapes/EtapeDuProjet";
+import CodePostal from "./etapes/CodePostal";
 
 const Simulateur = () => {
   const [card, setCard] = useState(0);
@@ -24,6 +26,12 @@ const Simulateur = () => {
 
       case 4:
         return <Travaux />;
+
+      case 5:
+        return <EtapeDuProjet />;
+
+      case 6:
+        return <CodePostal />;
 
       default:
         <TypeHabitation />;
@@ -51,7 +59,7 @@ const Simulateur = () => {
   };
 
   return (
-    <div className="min-h-[700px] w-full bg-light rounded-md shadow-md px-10 py-5 flex flex-col items-center justify-between">
+    <div className="min-h-[700px] w-full bg-light rounded-md shadow-md px-6 md:px-10 py-5 flex flex-col items-center justify-between">
       <div className="flex flex-col items-center">
         <h2 className="text-3xl text-dark font-semibold">
           Testez votre éligibilité
