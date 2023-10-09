@@ -6,6 +6,7 @@ import Chauffage from "./etapes/Chauffage";
 import Travaux from "./etapes/Travaux";
 import EtapeDuProjet from "./etapes/EtapeDuProjet";
 import CodePostal from "./etapes/CodePostal";
+import Inscription from "./etapes/Inscription";
 
 const Simulateur = () => {
   const [card, setCard] = useState(0);
@@ -32,6 +33,9 @@ const Simulateur = () => {
 
       case 6:
         return <CodePostal />;
+
+      case 7:
+        return <Inscription />;
 
       default:
         <TypeHabitation />;
