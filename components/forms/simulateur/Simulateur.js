@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import TypeHabitation from "./etapes/TypeHabitation";
 import AnneeDeConstruction from "./etapes/AnneeDeConstruction";
 import Surface from "./etapes/Surface";
+import Chauffage from "./etapes/Chauffage";
+import Travaux from "./etapes/Travaux";
 
 const Simulateur = () => {
   const [card, setCard] = useState(0);
@@ -16,6 +18,12 @@ const Simulateur = () => {
 
       case 2:
         return <Surface />;
+
+      case 3:
+        return <Chauffage />;
+
+      case 4:
+        return <Travaux />;
 
       default:
         <TypeHabitation />;
