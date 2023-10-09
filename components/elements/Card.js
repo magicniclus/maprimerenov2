@@ -3,7 +3,7 @@ import React from "react";
 const Card = (props) => {
   return (
     <div
-      className={`p-5 flex flex-col justify-between bg-primary rounded-md text-white w-[305px] lg:mt-0 shadow-md ${
+      className={`p-5 flex flex-col justify-between bg-primary rounded-md text-white w-full sm:w-[305px] lg:mt-0 shadow-md ${
         props.margin ? "mt-5" : ""
       }`}
     >
