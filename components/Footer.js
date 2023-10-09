@@ -27,32 +27,32 @@ const Footer = () => {
             Maprimerenov-info.org
           </a>
           <div className="flex flex-wrap mt-7">
-            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3 mt-2">
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-16 h-16 mr-3 mt-2">
               <img
                 src="/images/logos/maprimerenov.png"
                 alt="maprimerenov"
-                className="h-8 md:h-12 w-auto "
+                className="h-8 w-auto "
               />
             </div>
-            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3 mt-2">
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-16 h-16 mr-3 mt-2">
               <img
                 src="/images/logos/CEE.png"
                 alt="CEE"
-                className="h-8 md:h-12 w-auto"
+                className="h-8 w-auto"
               />
             </div>
-            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3 mt-2">
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-16 h-16 mr-3 mt-2">
               <img
                 src="/images/logos/france-renov.png"
                 alt="francerenov"
-                className="h-8 md:h-12 w-auto"
+                className="h-8 w-auto"
               />
             </div>
-            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-24 h-24 mr-3 mt-2">
+            <div className="flex justify-center items-center bg-white border-2 border-dark/20 rounded-full overflow-hidden w-16 h-16 mr-3 mt-2">
               <img
                 src="/images/logos/RGE.png"
                 alt="RGE"
-                className="h-8 md:h-12 w-auto"
+                className="h-8 w-auto"
               />
             </div>
           </div>
