@@ -19,7 +19,7 @@ const WhiteSelect = ({
     <select
       value={value || ""}
       onChange={handleChange}
-      className="bg-white text-dark p-2 rounded outline-none placeholder-dark/50 min-w-[400px]"
+      className="bg-white text-dark p-2 rounded outline-none placeholder-dark/50 xs:min-w-[400px]"
     >
       <option value="" disabled>
         {placeholder}
