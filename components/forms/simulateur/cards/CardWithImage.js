@@ -30,7 +30,7 @@ const CardWithImage = ({
         )}
       </div>
       <img src={src} alt={alt} />
-      <p className="mt-3 font-light">{title}</p>
+      <p className="mt-3 font-light text-xs">{title}</p>
     </div>
   );
 };
