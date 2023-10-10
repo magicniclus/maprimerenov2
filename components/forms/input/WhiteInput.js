@@ -48,7 +48,7 @@ const WhiteInput = ({ type, placeholder, value, setValue }) => {
       onChange={type === "zipCode" ? handleZipCodeChange : handleChange}
       placeholder={placeholder || ""}
       onWheel={(e) => e.preventDefault()}
-      className="bg-white text-dark p-2 rounded outline-none placeholder-dark/50 min-w-[400px]"
+      className="bg-white text-dark p-2 rounded outline-none placeholder-dark/50 xs:max-w-[400px] w-full"
     />
   );
 };
