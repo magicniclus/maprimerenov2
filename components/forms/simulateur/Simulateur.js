@@ -88,7 +88,7 @@ const Simulateur = () => {
     >
       <div className="flex flex-col items-center">
         {card > 0 && <ProgressBar />}
-        <h2 className="text-3xl text-dark font-semibold mt-3">
+        <h2 className="text-3xl text-dark font-semibold mt-5">
           Testez votre éligibilité
         </h2>
         <img
