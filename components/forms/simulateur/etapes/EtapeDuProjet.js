@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormLanding from "../../../../layout/FormLanding";
 import LittleCardWithImage from "../cards/LittleCardWithImage";
+import { useDispatch } from "react-redux";
 
 const EtapeDuProjet = () => {
+  const dispatch = useDispatch();
   const [cardSelected, setCardSelected] = useState(null);
 
   const clickManager = (newValue) => {
@@ -12,6 +14,28 @@ const EtapeDuProjet = () => {
       setCardSelected(newValue);
     }
   };
+
+  const translateCardSelected = () => {
+    switch (cardSelected) {
+      case 1:
+        return "Je reflechis";
+      case 2:
+        return "Je recherche un artisan RGE";
+      case 3:
+        return "Je vais signer un devis";
+      case 4:
+        return "J'ai signé un devis";
+      default:
+        return "";
+    }
+  };
+
+  useEffect(() => {
+    dispatch({
+      type: "UPDATE_USER_INFORMATIONS",
+      payload: { etapeDuProjet: translateCardSelected() },
+    });
+  }, [cardSelected]);
   return (
     <FormLanding title="Vous en êtes ou dans votre projet ? *">
       <LittleCardWithImage
@@ -32,8 +56,8 @@ const EtapeDuProjet = () => {
       />
       <LittleCardWithImage
         src="/images/icons/devis.png"
-        alt="Je vais signer mon devis"
-        title="Je vais signer mon devis"
+        alt="Je vais signer unx devis"
+        title="Je vais signer unx devis"
         onClick={() => clickManager(3)}
         selectedValue={cardSelected}
         value={3}
@@ -41,7 +65,7 @@ const EtapeDuProjet = () => {
       <LittleCardWithImage
         src="/images/icons/signature.png"
         alt="signature"
-        title="signature"
+        title="J'ai signé un devis"
         onClick={() => clickManager(4)}
         selectedValue={cardSelected}
         value={4}
