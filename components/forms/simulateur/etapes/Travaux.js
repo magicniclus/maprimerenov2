@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormLanding from "../../../../layout/FormLanding";
 import LittleCardWithImage from "../cards/LittleCardWithImage";
+import { useDispatch } from "react-redux";
 
 const Travaux = () => {
+  const dispatch = useDispatch();
+
   const [cardSelected, setCardSelected] = useState([]);
+  const [cardSelectedValue, setCardSelectedValue] = useState();
+
+  const valueToTitleMapping = {
+    1: "Isolation",
+    2: "Menuiserie",
+    3: "Vmc double flux",
+    4: "Pompe à chaleur",
+    5: "Chauffage Pële",
+    6: "Solaire chauffe eau",
+  };
 
   const clickManager = (newValue) => {
     if (cardSelected.includes(newValue)) {
@@ -16,8 +29,27 @@ const Travaux = () => {
       setCardSelected((prevState) => [...prevState, newValue]);
     }
   };
+
+  useEffect(() => {
+    // Transformer les valeurs de cardSelected en titres
+    const selectedValues = cardSelected.map(
+      (value) => valueToTitleMapping[value]
+    );
+
+    // Pas besoin de mettre à jour cardSelectedValue ici
+    // setCardSelectedValue(selectedValues);
+
+    dispatch({
+      type: "UPDATE_USER_INFORMATIONS",
+      payload: { travaux: selectedValues },
+    });
+  }, [cardSelected]);
+
   return (
-    <FormLanding title="Quel est votre principale source de chauffage actuellement :*">
+    <FormLanding
+      title=" Quel type de travaux vous souhaitez réaliser :*"
+      description="Plusieurs choix possible"
+    >
       <LittleCardWithImage
         src="/images/icons/isolation.png"
         alt="isolation"
