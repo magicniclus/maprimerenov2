@@ -87,7 +87,7 @@ const Inscription = () => {
         </div>
         <div className="flex flex-col mt-2">
           <label className="mb-1" for="fname">
-            NOM, Prénom *
+            Vous êtes ?*
           </label>
           <WhiteSelect
             options={options}
