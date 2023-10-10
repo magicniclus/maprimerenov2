@@ -7,7 +7,7 @@ const HeaderLanding = () => {
         Testez votre éligibilité aux aides 2023 encadré par l’état:
         MaPrimeRenov’!
       </h1>
-      <h2 className="text-white mt-10 text-2xl">
+      <h2 className="text-white my-10 text-2xl">
         80% de vos travaux d’économie d’énergie pris en charge.
       </h2>
     </section>
