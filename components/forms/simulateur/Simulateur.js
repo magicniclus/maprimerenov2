@@ -8,6 +8,7 @@ import Travaux from "./etapes/Travaux";
 import EtapeDuProjet from "./etapes/EtapeDuProjet";
 import CodePostal from "./etapes/CodePostal";
 import Inscription from "./etapes/Inscription";
+import ProgressBar from "./ProgressBar";
 
 const Simulateur = () => {
   const [card, setCard] = useState(0);
@@ -86,7 +87,8 @@ const Simulateur = () => {
       className="min-h-[700px] w-full bg-light rounded-md shadow-md px-6 md:px-10 py-5 flex flex-col items-center justify-between"
     >
       <div className="flex flex-col items-center">
-        <h2 className="text-3xl text-dark font-semibold">
+        {card > 0 && <ProgressBar />}
+        <h2 className="text-3xl text-dark font-semibold mt-3">
           Testez votre éligibilité
         </h2>
         <img
