@@ -29,6 +29,10 @@ const CodePostal = () => {
     } else if (codePostal) {
       // Si vous voulez ajouter une logique supplémentaire pour gérer les codes postaux non valides
       console.warn("Invalid French postal code entered!");
+      dispatch({
+        type: "UPDATE_USER_INFORMATIONS",
+        payload: { codePostal: null },
+      });
     }
   }, [codePostal]);
 
