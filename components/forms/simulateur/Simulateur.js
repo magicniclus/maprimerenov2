@@ -9,11 +9,16 @@ import EtapeDuProjet from "./etapes/EtapeDuProjet";
 import CodePostal from "./etapes/CodePostal";
 import Inscription from "./etapes/Inscription";
 import ProgressBar from "./ProgressBar";
+import Loader from "../../loader/Loader";
+import { updateUserData } from "../../../firebase/dataManager";
+import { useRouter } from "next/router";
 
 const Simulateur = () => {
   const [card, setCard] = useState(0);
+  const [showLoader, setShowLoader] = useState(false);
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.userInformation);
+  const router = useRouter();
 
   useEffect(() => {
     dispatch({ type: "UPDATE_STEP", payload: card });
@@ -76,16 +81,30 @@ const Simulateur = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submit");
+    setShowLoader(true);
+    try {
+      // Envoyez userData à Firebase
+      await updateUserData(userData);
+
+      // Cachez le loader et affichez un message de succès (ajoutez la logique appropriée ici)
+      setShowLoader(false);
+      router.push(`/merci`);
+    } catch (error) {
+      // Cachez le loader et affichez un message d'erreur
+      setShowLoader(false);
+      console.error("Error sending user data to Firebase: ", error);
+      // ... vous pouvez également afficher une alerte pour informer l'utilisateur de l'erreur
+    }
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="min-h-[700px] w-full bg-light rounded-md shadow-md px-6 md:px-10 py-5 flex flex-col items-center justify-between"
+      className="min-h-[700px] w-full bg-light rounded-md shadow-md px-6 md:px-10 py-5 flex flex-col items-center justify-between relative"
     >
+      {showLoader && <Loader />}
       <div className="flex flex-col items-center">
         {card > 0 && <ProgressBar />}
         <h2 className="text-3xl text-dark font-semibold mt-5">
