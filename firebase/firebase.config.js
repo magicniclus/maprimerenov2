@@ -3,14 +3,14 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCJQdBX_GBbCZHlwzKDeyLG3VbCigGv310",
-  authDomain: "breuillet-47fdc.firebaseapp.com",
-  projectId: "breuillet-47fdc",
-  storageBucket: "breuillet-47fdc.appspot.com",
-  messagingSenderId: "334551426297",
-  appId: "1:334551426297:web:2d04ce01844d2a6d5a2e28",
+  apiKey: "AIzaSyANjQ3xCyjveltI081x5ceT_Xv4cUylsCc",
+  authDomain: "maprimerenov-58fdf.firebaseapp.com",
   databaseURL:
-    "https://breuillet-47fdc-default-rtdb.europe-west1.firebasedatabase.app",
+    "https://maprimerenov-58fdf-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "maprimerenov-58fdf",
+  storageBucket: "maprimerenov-58fdf.appspot.com",
+  messagingSenderId: "855231284792",
+  appId: "1:855231284792:web:e491151c0617175c01c8cd",
 };
 
 // Initialize Firebase
