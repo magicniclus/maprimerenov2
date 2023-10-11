@@ -24,13 +24,13 @@ const Hero = (props) => {
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
-                    href="/simulateur"
+                    href={props.firstButtonLink || "/simulateur"}
                     className="rounded-md bg-green px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green transition-all duration-300 ease-in-out"
                   >
-                    Connaître vos aides
+                    {props.thirstButtonValue || "Connaître vos aides"}
                   </a>
                   <a
-                    href="#"
+                    href={props.secondButtonLink || "/entreprise"}
                     className="text-sm font-semibold leading-6 text-dark"
                   >
                     {props.buttonValue || "Vous êtes un profetionnel"}{" "}
