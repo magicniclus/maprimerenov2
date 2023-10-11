@@ -1,7 +1,7 @@
 import React from "react";
 import Basic from "../../layout/Basic";
 import BlogContainer from "../../components/blogs/BlogContainer";
-import CTA from "../../components/CTA/CTA";
+import { useRouter } from "next/router";
 
 const index = () => {
   return (
