@@ -14,6 +14,9 @@ const index = () => {
         text="Vous êtes une entreprise RGE et vous douhaitez vous developper ? Devenons partenaire ! 
     Postulez à notre programme nationnal d’aide à l’habitat et obtenez jusqu’à 40 demandes par jours."
         buttonValue="Vous êtes un particulier"
+        thirstButtonValue="Devenir partenaire"
+        firstButtonLink="#entrepriseForm"
+        secondButtonLink="/simulateur"
       />
       <Entreprise />
       <Cards />
