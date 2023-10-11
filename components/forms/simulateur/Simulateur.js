@@ -12,6 +12,7 @@ import ProgressBar from "./ProgressBar";
 import Loader from "../../loader/Loader";
 import { updateUserData } from "../../../firebase/dataManager";
 import { useRouter } from "next/router";
+import { updateDate } from "../../../utils/getDate";
 
 const Simulateur = () => {
   const [card, setCard] = useState(0);
@@ -86,7 +87,7 @@ const Simulateur = () => {
     setShowLoader(true);
     try {
       // Envoyez userData à Firebase
-      await updateUserData(userData);
+      await updateUserData({ ...userData, date: updateDate() });
 
       // Cachez le loader et affichez un message de succès (ajoutez la logique appropriée ici)
       setShowLoader(false);
@@ -99,9 +100,18 @@ const Simulateur = () => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    // Vérifiez si la touche appuyée est "Entrée"
+    if (e.keyCode === 13 && card !== 7) {
+      // Empêcher le formulaire de se soumettre
+      e.preventDefault();
+    }
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
+      onKeyDown={handleKeyDown}
       className="min-h-[700px] w-full bg-light rounded-md shadow-md px-6 md:px-10 py-5 flex flex-col items-center justify-between relative"
     >
       {showLoader && <Loader />}
@@ -136,6 +146,7 @@ const Simulateur = () => {
           }`}
           onClick={() => setCard((prevCard) => prevCard - 1)}
           disabled={card === 0}
+          type="button"
         >
           Précédent
         </button>
