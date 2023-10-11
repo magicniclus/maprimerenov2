@@ -25,3 +25,15 @@ export const updateEntrepriseData = async (userData) => {
     throw error;
   }
 };
+
+export const updateContactData = async (userData) => {
+  try {
+    const dbRef = ref(database, "contact");
+    const newProspectRef = push(dbRef);
+    await set(newProspectRef, userData);
+    console.log("Data sent successfully!");
+  } catch (error) {
+    console.error("Error sending data: ", error);
+    throw error;
+  }
+};
