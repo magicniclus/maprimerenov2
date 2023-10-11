@@ -71,7 +71,7 @@ const Chauffage = () => {
       <LittleCardWithImage
         src="/images/icons/feu.png"
         alt="feu"
-        title="Feu"
+        title="Cheminée/poêle à bois"
         onClick={() => clickManager(4)}
         selectedValue={cardSelected}
         value={4}
