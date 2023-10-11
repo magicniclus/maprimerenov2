@@ -24,7 +24,6 @@ const Entreprise = () => {
   const [phone, setPhone] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [RGPD, setRGPD] = useState(false);
-  const [currentDateTime, setCurrentDateTime] = useState("");
 
   // Validations
   const isEntrepriseNameValid = entrepriseName.length >= 2;
@@ -70,6 +69,21 @@ const Entreprise = () => {
       setShowLoader(false);
     }
   };
+
+  const handleDisbaled = () => {
+    if (
+      isEntrepriseNameValid &&
+      isSirenValid &&
+      isEmailValid &&
+      isPhoneValid &&
+      isPostalCodeValid &&
+      isRGECertified &&
+      RGPD
+    ) {
+      return false;
+    } else return true;
+  };
+
   return (
     <section className="w-full max-w-[1250px] px-0 py-0 lg:px-20 lg:py-10 mx-auto flex justify-between items-center lg:flex-row flex-col bg-light">
       {showLoader && <Loader />}
@@ -240,7 +254,7 @@ const Entreprise = () => {
           <CheckBox setValue={setRGPD} />
         </div>
         <div className="mt-7 w-full flex justify-center" onClick={handleSubmit}>
-          <ButtonGreen value="Envoyer" />
+          <ButtonGreen value="Envoyer" disabled={handleDisbaled()} />
         </div>
       </form>
     </section>
