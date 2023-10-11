@@ -15,7 +15,7 @@ const Header = () => {
           VOUS ÊTES UN <br />
           PROFESSIONNEL ?
         </a>
-        <ButtonWithBorder link={"#"} value="MON ESPACE" />
+        <ButtonWithBorder link={"/connexion"} value="MON ESPACE" />
       </div>
     </header>
   );
