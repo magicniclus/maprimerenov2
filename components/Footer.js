@@ -7,14 +7,17 @@ const navigation = {
     { name: "Articles", href: "/blog" },
   ],
   Contact: [
-    { name: "Contact", href: "#" },
-    { name: "Mon Espace", href: "#" },
-    { name: "Espace Pro", href: "#" },
+    { name: "Contact", href: "/contact" },
+    { name: "Mon Espace", href: "/connexion" },
+    { name: "Espace Pro", href: "/entreprise" },
     { name: "F.A.Q", href: "/FAQ" },
   ],
   Légale: [
-    { name: "Mentions légales", href: "#" },
-    { name: "Politique de cofidentialité", href: "#" },
+    { name: "Mentions légales", href: "/mentions-legales" },
+    {
+      name: "Politique de cofidentialité",
+      href: "/politique-de-confidentialite",
+    },
   ],
 };
 
