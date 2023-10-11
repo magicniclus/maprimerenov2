@@ -6,7 +6,6 @@ import CheckBox from "./checkbox/CheckBox";
 import { updateEntrepriseData } from "../../firebase/dataManager";
 import { useRouter } from "next/router";
 import Loader from "../loader/Loader";
-import { set } from "firebase/database";
 import { updateDate } from "../../utils/getDate";
 
 const Entreprise = () => {
