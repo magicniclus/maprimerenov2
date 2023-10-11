@@ -117,6 +117,7 @@ const Entreprise = () => {
       <form
         className="w-full lg:w-6/12 bg-white lg:shadow-md py-10 lg:px-10 px-7"
         onSubmit={handleSubmit}
+        id="entrepriseForm"
       >
         <h2 className="text-3xl text-dark font-semibold mx-auto">
           Devenir Partnaire
