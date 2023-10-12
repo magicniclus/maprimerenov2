@@ -14,7 +14,7 @@ const Travaux = () => {
     2: "Menuiserie",
     3: "Vmc double flux",
     4: "Pompe à chaleur",
-    5: "Chauffage Pële",
+    5: "Chauffage/Pële",
     6: "Solaire chauffe eau",
   };
 
