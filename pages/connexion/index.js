@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Basic from "../../layout/Basic";
+import { authenticateWithFirebase } from "../../firebase/partnerManager";
+import { useRouter } from "next/router";
 
-const index = () => {
+const Index = () => {
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      await authenticateWithFirebase(email, password);
+      console.log("Utilisateur connecté!");
+      router.push("/mon-espace");
+    } catch (error) {
+      console.error("Erreur de connexion:", error);
+    }
+  };
+
   return (
     <Basic>
       <div className="min-h-[calc(100vh-100px)] bg-slate-50 w-full max-w-[1250px] px-0 py-0 lg:px-20 lg:py-10 mx-auto flex justify-between items-center ">
@@ -12,7 +31,7 @@ const index = () => {
                 Connectez-vous
               </h2>
             </div>
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleLogin}>
               <div className="relative -space-y-px rounded-md shadow-sm">
                 <div className="pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset ring-gray-300" />
                 <div>
@@ -27,6 +46,8 @@ const index = () => {
                     required
                     className="pl-2 relative block w-full rounded-t-md border-0 py-1.5 text-dark ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div>
@@ -41,10 +62,11 @@ const index = () => {
                     required
                     className="pl-2 relative block w-full rounded-b-md border-0 py-1.5 text-dark ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Mot de passe"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
-
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
@@ -60,7 +82,6 @@ const index = () => {
                     Remember me
                   </label>
                 </div>
-
                 <div className="text-sm leading-6">
                   <a
                     href="#"
@@ -70,7 +91,6 @@ const index = () => {
                   </a>
                 </div>
               </div>
-
               <div>
                 <button
                   type="submit"
@@ -87,4 +107,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
