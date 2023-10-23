@@ -37,9 +37,9 @@ export default async (req, res) => {
     );
 
     const data = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
+      from: "Maprimerenov-info <onboarding@resend.dev>",
       to: ["casteranicolas.contact@gmail.com"],
-      subject: "Nouveau propsect 🔥🔥🔥",
+      subject: "Nouveau propsect Maprimerenov-info",
       html: emailContent, // Utilisez le contenu HTML généré
     });
 
