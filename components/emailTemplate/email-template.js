@@ -15,18 +15,42 @@ export const EmailTemplate = ({
 }) => (
   <div>
     <h2>Nouveau Propsect:</h2>
-    <p>Nom: {name}</p>
-    <p>Email: {email}</p>
-    <p>Téléphone: {telephone}</p>
-    <p>Statut: {status}</p>
-    <p>Code postal: {codePostal}</p>
-    <p>Type d'habitation: {type}</p>
-    {travaux.map((travail, index) => (
-      <p key={index}>Travaux: {travail}</p>
-    ))}
-    <p>Surface: {surface}</p>
-    <p>Chauffage: {typeDeChauffage}</p>
-    <p>Année de construction: {ageDuBien}</p>
-    <p>Etape du projet: {etapeDuProjet}</p>
+    <ul>
+      <li>
+        Nom: <span className="font-bold">{name}</span>
+      </li>
+      <li>
+        Email: <span className="font-bold">{email}</span>
+      </li>
+      <li>
+        Téléphone: <span className="font-bold">{telephone}</span>
+      </li>
+      <li>
+        Statut: <span className="font-bold">{status}</span>
+      </li>
+      <li>
+        Code postal: <span className="font-bold">{codePostal}</span>
+      </li>
+      <li>
+        Type d'habitation: <span className="font-bold">{type}</span>
+      </li>
+      {travaux.map((travail, index) => (
+        <li key={index}>
+          Travaux: <span className="font-bold">{travail}</span>
+        </li>
+      ))}
+      <li>
+        Surface: <span className="font-bold">{surface}</span> m<sup>2</sup>
+      </li>
+      <li>
+        Chauffage: <span className="font-bold">{typeDeChauffage}</span>
+      </li>
+      <li>
+        Année de construction: <span className="font-bold">{ageDuBien}</span>
+      </li>
+      <li>
+        Etape du projet: <span className="font-bold">{etapeDuProjet}</span>
+      </li>
+    </ul>
   </div>
 );
