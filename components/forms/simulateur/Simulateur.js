@@ -88,7 +88,13 @@ const Simulateur = () => {
     try {
       // Envoyez userData à Firebase
       await updateUserData({ ...userData, date: updateDate() });
-
+      fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
       // Cachez le loader et affichez un message de succès (ajoutez la logique appropriée ici)
       setShowLoader(false);
       router.push(`/merci`);
