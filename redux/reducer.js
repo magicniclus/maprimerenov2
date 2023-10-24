@@ -1,4 +1,4 @@
-const initState = { userInformation: {}, step: 0 };
+const initState = { userInformation: {}, step: 0, pagination: 1 };
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
@@ -14,6 +14,21 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         step: action.payload,
+      };
+    case "SET_CONTACTS":
+      return {
+        ...state,
+        contacts: action.payload,
+      };
+    case "SET_TOTAL_CONTACTS":
+      return {
+        ...state,
+        totalContacts: action.payload,
+      };
+    case "UPDATE_PAGINATION":
+      return {
+        ...state,
+        pagination: action.payload,
       };
     default:
       return state;
