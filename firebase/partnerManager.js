@@ -3,7 +3,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import app from "./firebase.config"; // Remplacez par le chemin correct vers votre fichier de configuration Firebase
+import { ref, onValue, off } from "firebase/database";
+import { database } from "./firebase.config"; // Remplacez par le chemin correct vers votre fichier de configuration Firebase
+import { data } from "autoprefixer";
 
 export const authenticateWithFirebase = (email, password) => {
   const auth = getAuth(app);
@@ -31,4 +33,22 @@ export const isUserAuthenticated = () => {
       }
     });
   });
+};
+
+export const watchCompanies = (sectorId, callback) => {
+  // Assurez-vous d'avoir défini app et importé getDatabase
+  const companiesRef = ref(database, `entreprises/${sectorId}`);
+
+  const listener = onValue(companiesRef, (snapshot) => {
+    let companiesArray = [];
+    const data = snapshot.val();
+
+    if (data) {
+      companiesArray = Object.values(data);
+    }
+
+    callback(companiesArray);
+  });
+
+  return () => off(companiesRef, "value", listener);
 };
