@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { watchContacts } from "../../firebase/dataManager";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Table = () => {
   const getContact = useSelector((state) => state.contacts);
