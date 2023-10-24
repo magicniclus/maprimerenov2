@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Basic from "../../layout/Basic";
-import { authenticateWithFirebase } from "../../firebase/partnerManager";
+import {
+  authenticateWithFirebase,
+  isUserAuthenticated,
+} from "../../firebase/partnerManager";
 import { useRouter } from "next/router";
 
 const Index = () => {
@@ -9,13 +12,23 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    const checkIfUserIsAuthenticated = async () => {
+      const isUserAuth = await isUserAuthenticated();
+      if (isUserAuth) {
+        router.push("/mon-espace");
+      }
+    };
+
+    checkIfUserIsAuthenticated();
+  }, []);
+
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       await authenticateWithFirebase(email, password);
       console.log("Utilisateur connecté!");
-      // router.push("/mon-espace");
+      router.push("/mon-espace");
     } catch (error) {
       console.error("Erreur de connexion:", error);
     }
