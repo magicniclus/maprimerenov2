@@ -19,11 +19,9 @@ const Table = () => {
             <div className="sm:flex sm:items-center">
               <div className="sm:flex-auto">
                 <h1 className="text-base font-semibold leading-6 text-white">
-                  Contacts
+                  List des prospects générés
                 </h1>
-                <p className="mt-2 text-sm text-gray-300">
-                  A list of all the contacts in your account.
-                </p>
+                <p className="mt-2 text-sm text-gray-300"></p>
               </div>
             </div>
             <div className="mt-8 flow-root">
