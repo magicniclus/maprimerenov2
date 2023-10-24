@@ -15,7 +15,7 @@ const Index = () => {
     try {
       await authenticateWithFirebase(email, password);
       console.log("Utilisateur connecté!");
-      router.push("/mon-espace");
+      // router.push("/mon-espace");
     } catch (error) {
       console.error("Erreur de connexion:", error);
     }
