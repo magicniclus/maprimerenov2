@@ -1,5 +1,4 @@
 import { initializeApp, getApps } from "firebase/app";
-import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,13 +15,10 @@ const firebaseConfig = {
 // Initialize Firebase
 let app;
 
-// Vérifie si une application Firebase existe déjà
 if (!getApps().length) {
   app = initializeApp(firebaseConfig);
 } else {
-  app = getApps()[0]; // Utilise l'application Firebase existante
+  app = getApps()[0];
 }
 
-const database = getDatabase(app);
-
-export { database };
+export default app;
