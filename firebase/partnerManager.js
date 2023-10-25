@@ -127,6 +127,6 @@ export const updateCurrentIndex = async (codeSector, index) => {
 };
 
 export const addProspectToPartner = async (partnerId, prospectData) => {
-  const partnerProspectsRef = ref(database, `prospect/${partnerId}`);
+  const partnerProspectsRef = ref(database, `prospect/entreprise/${partnerId}`);
   await push(partnerProspectsRef, prospectData);
 };
