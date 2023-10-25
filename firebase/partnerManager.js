@@ -3,7 +3,15 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { ref, onValue, off, set, getDatabase, push } from "firebase/database";
+import {
+  ref,
+  onValue,
+  off,
+  set,
+  getDatabase,
+  push,
+  get,
+} from "firebase/database";
 import app from "./firebase.config";
 
 const database = getDatabase(app);
@@ -55,14 +63,19 @@ export const watchCompanies = (sectorId, callback) => {
 };
 
 export const addCompany = (sectorId, company) => {
-  // Assurez-vous d'avoir défini app et importé getDatabase
-  const database = getDatabase(); // si vous avez déjà initialisé `getDatabase` ailleurs, alors cette ligne n'est pas nécessaire.
+  const database = getDatabase();
 
   // Création d'une référence pour la nouvelle entreprise avec un UUID généré automatiquement
   const newCompanyRef = push(ref(database, `entreprises/${sectorId}`));
 
-  // Utilisation de la méthode set pour ajouter la nouvelle entreprise
-  return set(newCompanyRef, company)
+  // Ajout de l'UUID à l'objet company
+  const companyWithId = {
+    ...company,
+    id: newCompanyRef.key,
+  };
+
+  // Utilisation de la méthode set pour ajouter la nouvelle entreprise avec l'ID
+  return set(newCompanyRef, companyWithId)
     .then(() => {
       console.log("Entreprise ajoutée avec succès !");
     })
@@ -73,19 +86,47 @@ export const addCompany = (sectorId, company) => {
 
 // Inside partnerManager.js
 
-export const getAllPartnersBySector = (callback) => {
-  const sectorsRef = ref(database, `entreprises`);
+export const getAllPartnersBySector = () => {
+  return new Promise((resolve, reject) => {
+    const sectorsRef = ref(database, `entreprises`);
 
-  onValue(sectorsRef, (snapshot) => {
-    const sectorsData = snapshot.val();
-    const result = {};
+    onValue(
+      sectorsRef,
+      (snapshot) => {
+        const sectorsData = snapshot.val();
+        const result = {};
 
-    if (sectorsData) {
-      Object.keys(sectorsData).forEach((sector) => {
-        result[sector] = Object.values(sectorsData[sector]);
-      });
-    }
-
-    callback(result);
+        if (sectorsData) {
+          Object.keys(sectorsData).forEach((sector) => {
+            result[sector] = Object.values(sectorsData[sector]);
+          });
+          resolve(result); // Résoudre la promesse avec les données des partenaires
+        } else {
+          reject("No sectors data found"); // Rejeter la promesse si aucune donnée n'est trouvée
+        }
+      },
+      (error) => {
+        reject(error); // Gérer les erreurs lors de la récupération des données
+      }
+    );
   });
+};
+
+export const getCurrentIndex = async (codeSector) => {
+  const db = getDatabase();
+  const indexRef = ref(db, `currentIndex/${codeSector}`);
+  const snapshot = await get(indexRef);
+
+  return snapshot.exists() ? snapshot.val() : 0;
+};
+
+export const updateCurrentIndex = async (codeSector, index) => {
+  const db = getDatabase();
+  const indexRef = ref(db, `currentIndex/${codeSector}`);
+  await set(indexRef, index);
+};
+
+export const addProspectToPartner = async (partnerId, prospectData) => {
+  const partnerProspectsRef = ref(database, `prospect/${partnerId}`);
+  await push(partnerProspectsRef, prospectData);
 };
