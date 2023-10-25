@@ -4,6 +4,7 @@ import ButtonWithBorder from "../../components/button/ButtonWithBorder";
 import { getFirstTwoNumbers } from "../../utils/getFirstTwoNumbers";
 import { addCompany } from "../../firebase/partnerManager";
 import { useRouter } from "next/router";
+import { updateDate } from "../../utils/getDate";
 
 const CreatePartner = () => {
   const router = useRouter();
@@ -43,6 +44,7 @@ const CreatePartner = () => {
       phone,
       newZip,
       prestation,
+      date: updateDate(),
     };
     try {
       await addCompany(newZip, company);
