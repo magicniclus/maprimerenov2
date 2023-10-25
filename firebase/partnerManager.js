@@ -4,8 +4,10 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { ref, onValue, off } from "firebase/database";
-import { database } from "./firebase.config"; // Remplacez par le chemin correct vers votre fichier de configuration Firebase
-import { data } from "autoprefixer";
+import { getDatabase } from "firebase/database";
+import app from "./firebase.config";
+
+const database = getDatabase(app);
 
 export const authenticateWithFirebase = (email, password) => {
   const auth = getAuth(app);
