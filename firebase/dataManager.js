@@ -1,4 +1,3 @@
-import { Database } from "./firebase.config.js";
 import {
   ref,
   push,
@@ -6,14 +5,12 @@ import {
   get,
   onValue,
   off,
-  getFirestore,
-  query,
-  collection,
-  orderBy,
-  onSnapshot,
+  getDatabase,
 } from "firebase/database";
-import { database } from "./firebase.config";
 import { convertDateToISO } from "../utils/convertDateToISO.js";
+import app from "./firebase.config";
+
+const database = getDatabase(app);
 
 export const updateUserData = async (userData) => {
   try {
