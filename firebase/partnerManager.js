@@ -3,8 +3,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { ref, onValue, off } from "firebase/database";
-import { getDatabase } from "firebase/database";
+import { ref, onValue, off, set, getDatabase, push } from "firebase/database";
 import app from "./firebase.config";
 
 const database = getDatabase(app);
@@ -53,4 +52,21 @@ export const watchCompanies = (sectorId, callback) => {
   });
 
   return () => off(companiesRef, "value", listener);
+};
+
+export const addCompany = (sectorId, company) => {
+  // Assurez-vous d'avoir défini app et importé getDatabase
+  const database = getDatabase(); // si vous avez déjà initialisé `getDatabase` ailleurs, alors cette ligne n'est pas nécessaire.
+
+  // Création d'une référence pour la nouvelle entreprise avec un UUID généré automatiquement
+  const newCompanyRef = push(ref(database, `entreprises/${sectorId}`));
+
+  // Utilisation de la méthode set pour ajouter la nouvelle entreprise
+  return set(newCompanyRef, company)
+    .then(() => {
+      console.log("Entreprise ajoutée avec succès !");
+    })
+    .catch((error) => {
+      console.error("Erreur lors de l'ajout de l'entreprise :", error);
+    });
 };
