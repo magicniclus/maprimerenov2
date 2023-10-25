@@ -146,7 +146,7 @@ const CreatePartner = () => {
                 <input
                   id="isolation"
                   aria-describedby="isolation"
-                  name="isolation"
+                  name="Isolation"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   onChange={handleCheckboxChange}
@@ -163,7 +163,7 @@ const CreatePartner = () => {
                 <input
                   id="menuiserie"
                   aria-describedby="menuiserie"
-                  name="menuiserie"
+                  name="Menuiserie"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   onChange={handleCheckboxChange}
@@ -180,7 +180,7 @@ const CreatePartner = () => {
                 <input
                   id="vmc"
                   aria-describedby="vmc"
-                  name="vmc"
+                  name="Vmc double flux"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   onChange={handleCheckboxChange}
@@ -188,7 +188,7 @@ const CreatePartner = () => {
               </div>
               <div className="ml-3 text-sm leading-6">
                 <label htmlFor="comments" className="font-medium text-gray-900">
-                  Vmc
+                  Vmc double flux
                 </label>
               </div>
             </div>
@@ -198,7 +198,7 @@ const CreatePartner = () => {
               <input
                 id="pompe-a-chaleur"
                 aria-describedby="pompe-a-chaleur"
-                name="pompe-a-chaleur"
+                name="Pompe à chaleur"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                 onChange={handleCheckboxChange}
@@ -215,7 +215,7 @@ const CreatePartner = () => {
               <input
                 id="chauffage/poele"
                 aria-describedby="chauffage/poele"
-                name="chauffage/poele"
+                name="Chauffage/Poêle"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                 onChange={handleCheckboxChange}
@@ -232,7 +232,7 @@ const CreatePartner = () => {
               <input
                 id="solaire"
                 aria-describedby="solaire"
-                name="solaire"
+                name="Solaire chauffe eau"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                 onChange={handleCheckboxChange}
