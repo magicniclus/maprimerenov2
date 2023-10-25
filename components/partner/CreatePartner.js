@@ -1,8 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import ButtonGreen from "../../components/button/ButtonGreen";
+import ButtonWithBorder from "../../components/button/ButtonWithBorder";
+import { getFirstTwoNumbers } from "../../utils/getFirstTwoNumbers";
+import { addCompany } from "../../firebase/partnerManager";
+import { useRouter } from "next/router";
 
 const CreatePartner = () => {
+  const router = useRouter();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [prestation, setPrestation] = useState([]);
+
+  const [disabled, setDisabled] = useState(true);
+
+  const handleCheckboxChange = (e) => {
+    const { checked, name } = e.target;
+
+    if (checked) {
+      // Si la checkbox est cochée, ajoutez la valeur à `prestation`
+      setPrestation((prev) => [...prev, name]);
+    } else {
+      // Si la checkbox est décochée, retirez la valeur de `prestation`
+      setPrestation((prev) => prev.filter((p) => p !== name));
+    }
+  };
+
+  useEffect(() => {
+    if (name && email && phone && zipCode && prestation.length > 0) {
+      setDisabled(false);
+    } else setDisabled(true);
+  }, [name, email, phone, zipCode, prestation]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newZip = getFirstTwoNumbers(zipCode);
+    const company = {
+      name,
+      email,
+      phone,
+      newZip,
+      prestation,
+    };
+    try {
+      await addCompany(newZip, company);
+      router.push("/mon-espace/entreprise");
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="max-w-[300px]">
         {" "}
         <label
@@ -18,6 +69,8 @@ const CreatePartner = () => {
             id="name"
             className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             placeholder="Saisir le nom de l'entreprise"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className="max-w-[300px] mt-5">
@@ -34,6 +87,8 @@ const CreatePartner = () => {
               id="email"
               className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="exemple@exemple.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         </div>
@@ -51,6 +106,8 @@ const CreatePartner = () => {
               id="phone"
               className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="0620252623"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
         </div>
@@ -68,6 +125,8 @@ const CreatePartner = () => {
               id="zipCode"
               className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Code postal"
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
             />
           </div>
         </div>
@@ -88,6 +147,7 @@ const CreatePartner = () => {
                   name="isolation"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  onChange={handleCheckboxChange}
                 />
               </div>
               <div className="ml-3 text-sm leading-6">
@@ -104,6 +164,7 @@ const CreatePartner = () => {
                   name="menuiserie"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  onChange={handleCheckboxChange}
                 />
               </div>
               <div className="ml-3 text-sm leading-6">
@@ -120,6 +181,7 @@ const CreatePartner = () => {
                   name="vmc"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  onChange={handleCheckboxChange}
                 />
               </div>
               <div className="ml-3 text-sm leading-6">
@@ -129,7 +191,7 @@ const CreatePartner = () => {
               </div>
             </div>
           </div>
-          <div className="relative flex items-start">
+          <div className="relative flex items-start mt-2">
             <div className="flex h-6 items-center">
               <input
                 id="pompe-a-chaleur"
@@ -137,6 +199,7 @@ const CreatePartner = () => {
                 name="pompe-a-chaleur"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                onChange={handleCheckboxChange}
               />
             </div>
             <div className="ml-3 text-sm leading-6">
@@ -145,7 +208,7 @@ const CreatePartner = () => {
               </label>
             </div>
           </div>
-          <div className="relative flex items-start">
+          <div className="relative flex items-start mt-2">
             <div className="flex h-6 items-center">
               <input
                 id="chauffage/poele"
@@ -153,15 +216,16 @@ const CreatePartner = () => {
                 name="chauffage/poele"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                onChange={handleCheckboxChange}
               />
             </div>
             <div className="ml-3 text-sm leading-6">
               <label htmlFor="comments" className="font-medium text-gray-900">
-                Pompe à Chauffage/Poêle
+                Chauffage/Poêle
               </label>
             </div>
           </div>
-          <div className="relative flex items-startx">
+          <div className="relative flex items-start mt-2">
             <div className="flex h-6 items-center">
               <input
                 id="solaire"
@@ -169,6 +233,7 @@ const CreatePartner = () => {
                 name="solaire"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                onChange={handleCheckboxChange}
               />
             </div>
             <div className="ml-3 text-sm leading-6">
@@ -178,6 +243,14 @@ const CreatePartner = () => {
             </div>
           </div>
         </fieldset>
+      </div>
+      <div>
+        <div className="mt-5">
+          <ButtonGreen value="Creer" disabled={disabled} type="submit" />
+        </div>
+        <div className="mt-5">
+          <ButtonWithBorder value="Annuler" link="/mon-espace/entreprise" />
+        </div>
       </div>
     </form>
   );
