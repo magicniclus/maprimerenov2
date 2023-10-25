@@ -115,18 +115,66 @@ const CreatePartner = () => {
             <div className="relative flex items-start">
               <div className="flex h-6 items-center">
                 <input
-                  id="Chauffage/poêle"
-                  aria-describedby="Chauffage/poêle"
-                  name="Chauffage/poêle"
+                  id="vmc"
+                  aria-describedby="vmc"
+                  name="vmc"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                 />
               </div>
               <div className="ml-3 text-sm leading-6">
                 <label htmlFor="comments" className="font-medium text-gray-900">
-                  Chauffage/poêle
+                  Vmc
                 </label>
               </div>
+            </div>
+          </div>
+          <div className="relative flex items-start">
+            <div className="flex h-6 items-center">
+              <input
+                id="pompe-a-chaleur"
+                aria-describedby="pompe-a-chaleur"
+                name="pompe-a-chaleur"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              />
+            </div>
+            <div className="ml-3 text-sm leading-6">
+              <label htmlFor="comments" className="font-medium text-gray-900">
+                Pompe à chaleur
+              </label>
+            </div>
+          </div>
+          <div className="relative flex items-start">
+            <div className="flex h-6 items-center">
+              <input
+                id="chauffage/poele"
+                aria-describedby="chauffage/poele"
+                name="chauffage/poele"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              />
+            </div>
+            <div className="ml-3 text-sm leading-6">
+              <label htmlFor="comments" className="font-medium text-gray-900">
+                Pompe à Chauffage/Poêle
+              </label>
+            </div>
+          </div>
+          <div className="relative flex items-startx">
+            <div className="flex h-6 items-center">
+              <input
+                id="solaire"
+                aria-describedby="solaire"
+                name="solaire"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              />
+            </div>
+            <div className="ml-3 text-sm leading-6">
+              <label htmlFor="comments" className="font-medium text-gray-900">
+                Solaire/Chauffe eau
+              </label>
             </div>
           </div>
         </fieldset>
