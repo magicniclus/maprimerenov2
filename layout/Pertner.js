@@ -88,18 +88,18 @@ const Pertner = ({ children }) => {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
-                      <button
+                      {/* <button
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       >
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">View notifications</span>
                         <BellIcon className="h-6 w-6" aria-hidden="true" />
-                      </button>
+                      </button> */}
 
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
-                        <div>
+                        {/* <div>
                           <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Open user menu</span>
@@ -109,7 +109,7 @@ const Pertner = ({ children }) => {
                               alt=""
                             />
                           </Menu.Button>
-                        </div>
+                        </div> */}
                         <Transition
                           as={Fragment}
                           enter="transition ease-out duration-100"
@@ -161,7 +161,7 @@ const Pertner = ({ children }) => {
                 </div>
               </div>
 
-              <Disclosure.Panel className="md:hidden">
+              {/* <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                   {navItems.map((item) => (
                     <Disclosure.Button
@@ -179,8 +179,8 @@ const Pertner = ({ children }) => {
                       {item.name}
                     </Disclosure.Button>
                   ))}
-                </div>
-                <div className="border-t border-gray-700 pb-3 pt-4">
+                </div> */}
+              {/* <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
                       <img
@@ -218,8 +218,8 @@ const Pertner = ({ children }) => {
                       </Disclosure.Button>
                     ))}
                   </div>
-                </div>
-              </Disclosure.Panel>
+                </div> */}
+              {/* </Disclosure.Panel> */}
             </>
           )}
         </Disclosure>
