@@ -70,3 +70,22 @@ export const addCompany = (sectorId, company) => {
       console.error("Erreur lors de l'ajout de l'entreprise :", error);
     });
 };
+
+// Inside partnerManager.js
+
+export const getAllPartnersBySector = (callback) => {
+  const sectorsRef = ref(database, `entreprises`);
+
+  onValue(sectorsRef, (snapshot) => {
+    const sectorsData = snapshot.val();
+    const result = {};
+
+    if (sectorsData) {
+      Object.keys(sectorsData).forEach((sector) => {
+        result[sector] = Object.values(sectorsData[sector]);
+      });
+    }
+
+    callback(result);
+  });
+};
