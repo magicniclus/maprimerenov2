@@ -30,8 +30,8 @@ const index = () => {
       <SectionWithAction />
 
       {Object.entries(allPartner).map(([sector, partners]) => (
-        <div key={sector}>
-          <h3>{sector}</h3>
+        <div className="mt-7" key={sector}>
+          <h3 className="mb-3">{sector}</h3>
           <TableOfPartner data={partners} />
         </div>
       ))}
