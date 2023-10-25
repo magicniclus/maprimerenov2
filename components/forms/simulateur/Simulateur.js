@@ -10,9 +10,10 @@ import CodePostal from "./etapes/CodePostal";
 import Inscription from "./etapes/Inscription";
 import ProgressBar from "./ProgressBar";
 import Loader from "../../loader/Loader";
-import { updateUserData } from "../../../firebase/dataManager";
+import { updateUserDataForProspect } from "../../../firebase/dataManager";
 import { useRouter } from "next/router";
 import { updateDate } from "../../../utils/getDate";
+import { addLeadInEntreprise } from "../../../utils/addLeadInEntreprise";
 
 const Simulateur = () => {
   const [card, setCard] = useState(0);
@@ -86,23 +87,29 @@ const Simulateur = () => {
     e.preventDefault();
     setShowLoader(true);
     try {
-      // Envoyez userData à Firebase
-      await updateUserData({ ...userData, date: updateDate() });
-      fetch("/api/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
+      const entrepriseId = await addLeadInEntreprise(userData); // Obtenez entrepriseId ou null
+
+      // Ajoutez toujours les données de l'utilisateur à 'prospect', même si entrepriseId est null
+      await updateUserDataForProspect(entrepriseId || "no-entreprise", {
+        ...userData,
+        date: updateDate(),
       });
-      // Cachez le loader et affichez un message de succès (ajoutez la logique appropriée ici)
+
+      // Envoyez les données, y compris entrepriseId s'il existe
+      const payload = entrepriseId ? { ...userData, entrepriseId } : userData;
+      // fetch("/api/send", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(payload),
+      // });
+
       setShowLoader(false);
       router.push(`/merci`);
     } catch (error) {
-      // Cachez le loader et affichez un message d'erreur
       setShowLoader(false);
       console.error("Error sending user data to Firebase: ", error);
-      // ... vous pouvez également afficher une alerte pour informer l'utilisateur de l'erreur
     }
   };
 
