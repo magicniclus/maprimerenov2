@@ -10,7 +10,10 @@ import CodePostal from "./etapes/CodePostal";
 import Inscription from "./etapes/Inscription";
 import ProgressBar from "./ProgressBar";
 import Loader from "../../loader/Loader";
-import { updateUserDataForProspect } from "../../../firebase/dataManager";
+import {
+  updateProspect,
+  updateUserDataForProspect,
+} from "../../../firebase/dataManager";
 import { useRouter } from "next/router";
 import { updateDate } from "../../../utils/getDate";
 import { addLeadInEntreprise } from "../../../utils/addLeadInEntreprise";
@@ -88,6 +91,11 @@ const Simulateur = () => {
     setShowLoader(true);
     try {
       const entrepriseId = await addLeadInEntreprise(userData); // Obtenez entrepriseId ou null
+
+      await updateProspect(entrepriseId || "no-entreprise", {
+        ...userData,
+        date: updateDate(),
+      });
 
       // Ajoutez toujours les données de l'utilisateur à 'prospect', même si entrepriseId est null
       await updateUserDataForProspect(entrepriseId || "no-entreprise", {
