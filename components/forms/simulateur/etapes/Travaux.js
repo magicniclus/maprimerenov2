@@ -14,7 +14,7 @@ const Travaux = () => {
     2: "Menuiserie",
     3: "Vmc double flux",
     4: "Pompe à chaleur",
-    5: "Chauffage/Pële",
+    5: "Chauffage/Poêle",
     6: "Solaire chauffe eau",
   };
 
@@ -88,8 +88,8 @@ const Travaux = () => {
       />
       <LittleCardWithImage
         src="/images/icons/chauffage.png"
-        alt="Chauffage Pële"
-        title="Chauffage Pële"
+        alt="Chauffage Poêle"
+        title="Chauffage Poêle"
         onClick={() => clickManager(5)}
         selectedValue={cardSelected.includes(5)}
         value={5}
