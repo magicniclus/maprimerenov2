@@ -15,7 +15,6 @@ import {
   updateUserDataForProspect,
 } from "../../../firebase/dataManager";
 import { useRouter } from "next/router";
-import { updateDate } from "../../../utils/getDate";
 import { addLeadInEntreprise } from "../../../utils/addLeadInEntreprise";
 
 const Simulateur = () => {
@@ -89,29 +88,30 @@ const Simulateur = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setShowLoader(true);
+
     try {
-      const entrepriseId = await addLeadInEntreprise(userData); // Obtenez entrepriseId ou null
+      const entrepriseIds = await addLeadInEntreprise(userData);
+      await updateProspect(userData);
 
-      await updateProspect(entrepriseId || "no-entreprise", {
-        ...userData,
-        date: updateDate(),
-      });
+      // Vérifiez si entrepriseIds est valide et non nul
+      if (entrepriseIds && entrepriseIds.length > 0) {
+        const sendEmailPromises = entrepriseIds.map((entrepriseId) => {
+          const payload = { ...userData, entrepriseId };
+          console.log("Sending payload:", payload);
+          return fetch("/api/send", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+        });
 
-      // Ajoutez toujours les données de l'utilisateur à 'prospect', même si entrepriseId est null
-      await updateUserDataForProspect(entrepriseId || "no-entreprise", {
-        ...userData,
-        date: updateDate(),
-      });
-
-      // Envoyez les données, y compris entrepriseId s'il existe
-      const payload = entrepriseId ? { ...userData, entrepriseId } : userData;
-      // fetch("/api/send", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(payload),
-      // });
+        // Attendez que tous les e-mails soient envoyés avant de continuer
+        await Promise.all(sendEmailPromises);
+      } else {
+        console.log("No entrepriseIds found. Email not sent.");
+      }
 
       setShowLoader(false);
       router.push(`/merci`);
