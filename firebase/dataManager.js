@@ -87,7 +87,7 @@ export const watchContacts = (pageNumber, callback) => {
   const startAtVal = (pageNumber - 1) * numberOfDocumentsPerPage;
   const endAtVal = pageNumber * numberOfDocumentsPerPage - 1;
 
-  const contactsRef = ref(database, "prospect");
+  const contactsRef = ref(database, "prospect/allProspect");
 
   const listener = onValue(contactsRef, (snapshot) => {
     let contactsArray = [];
