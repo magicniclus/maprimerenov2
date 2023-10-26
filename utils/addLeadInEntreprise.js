@@ -10,6 +10,8 @@ export const addLeadInEntreprise = async (userData) => {
     const parteners = await getAllPartnersBySector();
     const codeSector = userData.codePostal.substring(0, 2);
 
+    let entrepriseIds = []; // Pour conserver les identifiants des entreprises
+
     if (parteners.hasOwnProperty(codeSector)) {
       let matchedPartners = Object.values(parteners[codeSector]);
 
@@ -23,6 +25,9 @@ export const addLeadInEntreprise = async (userData) => {
           const selectedPartner =
             partnersForCurrentJob[currentIndex % partnersForCurrentJob.length];
 
+          // Ajoutez l'ID du partenaire sélectionné à la liste
+          entrepriseIds.push(selectedPartner.id);
+
           // Ajoutez le prospect à la base de données du partenaire sélectionné
           await addProspectToPartner(selectedPartner.id, userData);
 
@@ -33,7 +38,7 @@ export const addLeadInEntreprise = async (userData) => {
         }
       }
 
-      resolve();
+      resolve(entrepriseIds);
     } else {
       console.log("No matching partners found for this codePostal.");
       resolve(null);
