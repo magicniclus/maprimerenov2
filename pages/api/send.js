@@ -18,6 +18,7 @@ export default async (req, res) => {
       type,
       ageDuBien,
       etapeDuProjet,
+      partnerEmails,
     } = req.body;
 
     const emailContent = ReactDOMServer.renderToString(
@@ -38,13 +39,14 @@ export default async (req, res) => {
 
     const data = await resend.emails.send({
       from: "Maprimerenov-info <onboarding@resend.dev>",
-      to: ["casteranicolas.contact@gmail.com"],
+      to: partnerEmails || ["casteranicolas.contact@gmail.com"],
       subject: "Nouveau propsect Maprimerenov-info",
-      html: emailContent, // Utilisez le contenu HTML généré
+      html: emailContent,
     });
 
     res.status(200).json(data);
   } catch (error) {
+    res.status(400).json({ message: error.message, stack: error.stack });
     res.status(400).json(error);
   }
 };
