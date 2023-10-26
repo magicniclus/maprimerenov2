@@ -17,10 +17,14 @@ const index = () => {
     });
 
     // This fetches all partners grouped by sector
-    getAllPartnersBySector((partners) => {
-      console.log("All Partners by Sector: ", partners);
-      setAllPartner(partners);
-    });
+    getAllPartnersBySector()
+      .then((partners) => {
+        console.log("All Partners by Sector: ", partners);
+        setAllPartner(partners);
+      })
+      .catch((error) => {
+        console.error("Error fetching partners by sector: ", error);
+      });
 
     return () => unsubscribe();
   }, []);
