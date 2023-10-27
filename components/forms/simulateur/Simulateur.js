@@ -10,6 +10,7 @@ import CodePostal from "./etapes/CodePostal";
 import Inscription from "./etapes/Inscription";
 import ProgressBar from "./ProgressBar";
 import Loader from "../../loader/Loader";
+import { updateDate } from "../../../utils/getDate";
 import {
   updateProspect,
   updateUserDataForProspect,
@@ -89,14 +90,16 @@ const Simulateur = () => {
     e.preventDefault();
     setShowLoader(true);
 
+    const newDate = updateDate();
+
     try {
       const entrepriseIds = await addLeadInEntreprise(userData);
-      await updateProspect(userData);
+      await updateProspect({ ...userData, newDate });
 
       // Vérifiez si entrepriseIds est valide et non nul
       if (entrepriseIds && entrepriseIds.length > 0) {
         const sendEmailPromises = entrepriseIds.map((entrepriseId) => {
-          const payload = { ...userData, entrepriseId };
+          const payload = { ...userData, entrepriseId, newDate };
           console.log("Sending payload:", payload);
           return fetch("/api/send", {
             method: "POST",
