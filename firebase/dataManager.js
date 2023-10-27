@@ -141,10 +141,10 @@ export const updateUserDataForProspect = (entrepriseId, data) => {
     });
 };
 
-export const updateProspect = (entrepriseId, data) => {
+export const updateProspect = (data) => {
   const database = getDatabase();
   const userRef = ref(database, `prospect/allProspect`);
-  return push(userRef, { ...data, entrepriseId })
+  return push(userRef, data)
     .then(() => {
       console.log("User data successfully added for the enterprise!");
     })
