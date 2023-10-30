@@ -130,3 +130,33 @@ export const addProspectToPartner = async (partnerId, prospectData) => {
   const partnerProspectsRef = ref(database, `prospect/entreprise/${partnerId}`);
   await push(partnerProspectsRef, prospectData);
 };
+
+export const getEmailByEntrepriseId = (entrepriseId, codePostal) => {
+  return new Promise((resolve, reject) => {
+    // Faire référence à l'entreprise spécifique par son ID dans Firebase
+    const entrepriseRef = ref(
+      database,
+      `entreprises/${codePostal}/${entrepriseId}`
+    );
+
+    // Obtenir les données pour cette entreprise
+    get(entrepriseRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const entrepriseData = snapshot.val();
+
+          // Vérifier si les données contiennent un champ d'email
+          if (entrepriseData && entrepriseData.email) {
+            resolve(entrepriseData.email);
+          } else {
+            reject("L'entreprise n'a pas d'adresse email enregistrée.");
+          }
+        } else {
+          reject(`Aucune entreprise trouvée avec l'ID: ${entrepriseId}`);
+        }
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
