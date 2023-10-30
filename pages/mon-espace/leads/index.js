@@ -13,8 +13,6 @@ const index = () => {
 
   useEffect(() => {
     const unsubscribe = watchContacts(getPagination, (newContacts) => {
-      console.log("New contacts received:", newContacts);
-      console.log("Setting contacts in redux:", contacts);
       setContacts(newContacts);
     });
 
