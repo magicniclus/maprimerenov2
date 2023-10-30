@@ -7,7 +7,20 @@ import Basic from "../../layout/Basic";
 
 const index = () => {
   return (
-    <Basic>
+    <Basic
+      title="Simulateur MaPrimeRenov en 1 minute | MaPrimeRenov-info"
+      ogUrl="https://maprimerenov-info.org/simulateur"
+      description="Découvrez en 1 minute les aides de l'état disponibles avec notre simulateur MaPrimeRenov. Obtenez une estimation rapide et précise."
+      keywords={[
+        "MaPrimeRenov",
+        "simulateur",
+        "aides de l'état",
+        "estimation",
+        "rénovation énergétique",
+        "prime éco",
+      ]}
+      ogImage="/images/logos/favicon.png"
+    >
       <HeaderLanding />
       <FormLanding />
       <Cards />
