@@ -19,6 +19,7 @@ export default async (req, res) => {
       ageDuBien,
       etapeDuProjet,
       partnerEmails,
+      newDate,
     } = req.body;
 
     const emailContent = ReactDOMServer.renderToString(
@@ -34,6 +35,7 @@ export default async (req, res) => {
         type,
         ageDuBien,
         etapeDuProjet,
+        date: newDate,
       })
     );
 
