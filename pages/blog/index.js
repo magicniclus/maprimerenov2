@@ -29,47 +29,43 @@ const index = () => {
                 key={post.id}
                 className="flex flex-col items-start justify-between"
               >
-                <div className="relative w-full">
-                  <img
-                    src={post.imageUrl}
-                    alt=""
-                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                  />
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                </div>
-                <div className="max-w-xl">
-                  <div className="mt-8 flex items-center gap-x-4 text-xs">
-                    <time dateTime={post.datetime} className="text-dark/75">
-                      {post.date}
-                    </time>
-                    <a
-                      href={`blog/${post.type}/${post.slug}`}
-                      className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-dark hover:bg-gray-100"
-                    >
-                      {post.title}
-                    </a>
+                <a href={`blog/${post.type}/${post.slug}`}>
+                  <div className="relative w-full">
+                    <img
+                      src={post.imageUrl}
+                      alt=""
+                      className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                    />
+                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
-                  <div className="group relative">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-dark group-hover:text-gray-600">
-                      <a href={post.href}>
-                        <span className="absolute inset-0" />
-                        {post.title}
-                      </a>
-                    </h3>
-                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-dark">
-                      {post.description}
-                    </p>
-                    <div className="text-sm leading-6">
-                      <p className="font-semibold text-dark">
-                        <p>
+                  <div className="max-w-xl">
+                    <div className="mt-8 flex items-center gap-x-4 text-xs">
+                      <time dateTime={post.datetime} className="text-dark/75">
+                        {post.date}
+                      </time>
+                    </div>
+                    <div className="group relative">
+                      <h3 className="mt-3 text-lg font-semibold leading-6 text-dark group-hover:text-gray-600">
+                        <a href={post.href}>
                           <span className="absolute inset-0" />
-                          {post.author}
-                        </p>
+                          {post.title}
+                        </a>
+                      </h3>
+                      <p className="mt-5 line-clamp-3 text-sm leading-6 text-dark">
+                        {post.description}
                       </p>
-                      <p className="text-gray-600">{post.author.role}</p>
+                      <div className="text-sm leading-6">
+                        <p className="font-semibold text-dark">
+                          <p>
+                            <span className="absolute inset-0" />
+                            {post.author}
+                          </p>
+                        </p>
+                        <p className="text-gray-600">{post.author.role}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </article>
             ))}
         </div>
