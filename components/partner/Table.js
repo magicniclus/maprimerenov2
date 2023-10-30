@@ -6,7 +6,6 @@ const Table = () => {
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-    console.log("Contacts from redux:", getContact);
     setContacts(getContact);
   }, [getContact]);
 
@@ -63,7 +62,7 @@ const Table = () => {
                               {contact.etapeDuProjet}
                             </td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
-                              {contact.date}
+                              {contact.newDate}
                             </td>
                           </tr>
                         ))}
