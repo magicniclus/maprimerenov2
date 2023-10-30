@@ -9,7 +9,7 @@ const Basic = ({ title, description, keywords, ogImage, ogUrl, children }) => {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/logos/favicon.png" />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={ogUrl} />
 
