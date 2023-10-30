@@ -54,7 +54,8 @@ export const posts = [
           "La chaudière à bois est donc une solution avantageuse à la fois pour l'environnement et pour le portefeuille. Si vous envisagez une nouvelle solution de chauffage, c'est certainement une option à considérer.",
       },
     ],
-    imageUrl: "/path/to/your/image/chaudiere-bois.jpg",
+    imageUrl:
+      "https://images.unsplash.com/photo-1567080586917-e6ab6aa0df85?auto=format&fit=crop&q=80&w=1587&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
