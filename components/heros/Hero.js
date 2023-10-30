@@ -53,7 +53,10 @@ const Hero = (props) => {
                 />
                 <div className="relative px-6 py-6 sm:pt-6 lg:pl-6 lg:pr-0 flex justify-center items-center">
                   <img
-                    src={props.img || "/images/imgs/istock.png"}
+                    src={
+                      props.img ||
+                      "https://images.unsplash.com/photo-1532348260545-b021ade9c70d?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNoYXJwZW50aWVyfGVufDB8fDB8fHww"
+                    }
                     alt="istock"
                     className="w-full"
                   />
