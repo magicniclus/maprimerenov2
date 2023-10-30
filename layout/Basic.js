@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-const Basic = ({ title, description, keywords, ogImage, ogUrl, children }) => {
+const Basic = (props) => {
+  const title = props.title;
+  const description = props.description;
+  const keywords = props.keywords;
+  const ogImage = props.ogImage;
+  const ogUrl = props.ogUrl;
+
+  useEffect(() => {
+    console.log(title, description, keywords, ogImage, ogUrl);
+  }, [title]);
+
   return (
     <>
       <Head>
@@ -20,7 +30,7 @@ const Basic = ({ title, description, keywords, ogImage, ogUrl, children }) => {
         <meta property="og:url" content={ogUrl} />
       </Head>
       <Header />
-      <main className="">{children}</main>
+      <main className="">{props.children}</main>
       <Footer />
     </>
   );
