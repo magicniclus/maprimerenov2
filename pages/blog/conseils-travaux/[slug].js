@@ -17,18 +17,28 @@ export default function BlogPost({ post }) {
   }
 
   return (
-    <Basic>
+    <Basic
+      title={post.title}
+      description={post.description}
+      ogImage={post.imageUrl}
+      ogUrl={`maprimerenov-info.org/blog/${router.asPath}`}
+    >
       <div className="lg:w-4/12 w-full h-max py-7 px-5 bg-gray-50 lg:hidden block mb-5">
         <h2 className="text-2xl text-dark font-semibold">Sommaire :</h2>
-        {post.content.map((item, index) => {
-          if (item.type === "subtitle") {
-            return (
-              <p key={index} className="text-dark font-semibold mt-3">
-                {item.value}
-              </p>
-            );
-          }
-        })}
+        <ul>
+          {post.content.map((item, index) => {
+            if (item.type === "subtitle") {
+              return (
+                <li
+                  key={index}
+                  className="text-dark font-semibold mt-3 list-decimal ml-5"
+                >
+                  {item.value}
+                </li>
+              );
+            }
+          })}
+        </ul>
         <h2 className="text-2xl text-dark font-semibold mt-5">Description :</h2>
         <p className="mt-3">{post.description}</p>
         <div className="flex mt-5">
@@ -50,7 +60,7 @@ export default function BlogPost({ post }) {
           <img
             src={post.imageUrl}
             alt={post.title}
-            className="w-full h-52 object-cover rounded-xl"
+            className="w-full h-52 object-cover"
           />
           {post.content.map((item, index) => {
             if (item.type === "title") {
@@ -95,20 +105,25 @@ export default function BlogPost({ post }) {
         </div>
         <div className="lg:w-4/12 w-full h-max py-7 px-5 bg-gray-50 rounded-xl lg:block hidden">
           <h2 className="text-2xl text-dark font-semibold">Sommaire :</h2>
-          {post.content.map((item, index) => {
-            if (item.type === "subtitle") {
-              return (
-                <p key={index} className="text-dark font-semibold mt-3">
-                  {item.value}
-                </p>
-              );
-            }
-          })}
+          <ul>
+            {post.content.map((item, index) => {
+              if (item.type === "subtitle") {
+                return (
+                  <li
+                    key={index}
+                    className="ml-5 text-dark font-semibold mt-3 list-decimal"
+                  >
+                    {item.value}
+                  </li>
+                );
+              }
+            })}
+          </ul>
           <h2 className="text-2xl text-dark font-semibold mt-5">
             Description :
           </h2>
           <p className="mt-3">{post.description}</p>
-          <div className="flex mt-5">
+          <div className="flex mt-10">
             <ClockIcon className="w-6 h-6 inline-block mr-2" />
             <p className="">
               Temps de lecture estimé:{" "}
@@ -121,6 +136,9 @@ export default function BlogPost({ post }) {
               Auteur: <span className="font-semibold">{post.author}</span>
             </p>
           </div>
+          <p className="mt-10 px-3 py-2 rounded-full bg-blue-500 text-white w-max">
+            #{post.type}
+          </p>
         </div>
       </section>
       <CTA />
