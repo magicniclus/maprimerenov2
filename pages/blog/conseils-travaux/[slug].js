@@ -21,7 +21,7 @@ export default function BlogPost({ post }) {
       title={post.title}
       description={post.description}
       ogImage={post.imageUrl}
-      ogUrl={`maprimerenov-info.org/blog/${router.asPath}`}
+      ogUrl={`maprimerenov-info.org${router.asPath}`}
     >
       <div className="lg:w-4/12 w-full h-max py-7 px-5 bg-gray-50 lg:hidden block mb-5">
         <h2 className="text-2xl text-dark font-semibold">Sommaire :</h2>
