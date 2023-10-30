@@ -93,7 +93,7 @@ const Simulateur = () => {
     const newDate = updateDate();
 
     try {
-      const entrepriseIds = await addLeadInEntreprise(userData);
+      const entrepriseIds = await addLeadInEntreprise({ ...userData, newDate });
       await updateProspect({ ...userData, newDate });
 
       // Vérifiez si entrepriseIds est valide et non nul
