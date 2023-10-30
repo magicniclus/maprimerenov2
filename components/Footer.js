@@ -4,6 +4,7 @@ const navigation = {
   Solutions: [
     { name: "Simulateur", href: "/simulateur" },
     { name: "Devenir Partenaire", href: "/entreprise" },
+    { name: "Blog", href: "/blog" },
   ],
   Contact: [
     { name: "Contact", href: "/contact" },
