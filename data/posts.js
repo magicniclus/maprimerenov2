@@ -112,7 +112,8 @@ export const posts = [
           "Opter pour le chauffage au gaz est une décision judicieuse pour ceux qui cherchent une méthode de chauffage fiable, économique et respectueuse de l'environnement. Pensez-y lors de la rénovation ou la construction de votre maison.",
       },
     ],
-    imageUrl: "/path/to/your/image/chauffage-gaz.jpg",
+    imageUrl:
+      "https://plus.unsplash.com/premium_photo-1661301068444-8ac48208d017?auto=format&fit=crop&q=80&w=1587&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
@@ -179,6 +180,7 @@ export const posts = [
           "L'isolation des murs intérieurs est une étape essentielle pour améliorer le confort de votre maison tout en faisant des économies d'énergie. C'est également une démarche éco-responsable favorisant la réduction de l'empreinte carbone. N'attendez plus pour renforcer l'isolation de votre domicile!",
       },
     ],
-    imageUrl: "/path/to/your/image/isolation-murs-interieur.jpg",
+    imageUrl:
+      "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?auto=format&fit=crop&q=80&w=1738&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
