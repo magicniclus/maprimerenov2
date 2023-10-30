@@ -6,6 +6,7 @@ import {
 } from "../firebase/partnerManager";
 
 export const addLeadInEntreprise = async (userData) => {
+  console.log(userData);
   return new Promise(async (resolve, reject) => {
     const parteners = await getAllPartnersBySector();
     const codeSector = userData.codePostal.substring(0, 2);
