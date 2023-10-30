@@ -88,8 +88,7 @@ const index = () => {
         <h2 className="mt-5 font-semibold text-xl">Contact</h2>
         <p className="mt-5">
           Si vous avez des questions ou des préoccupations concernant cette
-          politique, veuillez nous contacter à
-          casteranicolas.contact2@gmail.com.
+          politique, veuillez nous contacter à contact@maprimerenov-info.org.
         </p>
       </div>
     </Basic>
