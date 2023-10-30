@@ -96,17 +96,30 @@ export const watchContacts = (pageNumber, callback) => {
     if (data) {
       contactsArray = Object.values(data)
         .sort((a, b) => {
-          const dateA = new Date(convertDateToISO(a.date));
-          const dateB = new Date(convertDateToISO(b.date));
+          if (!a.newDate || typeof a.newDate !== "string") {
+            console.error("Invalid newDate in object A:", a);
+            return 0;
+          }
+
+          console.log("Date string before conversion A:", a.newDate);
+          const dateA = new Date(convertDateToISO(a.newDate));
+          console.log("Date after conversion A:", dateA);
+
+          if (!b.newDate || typeof b.newDate !== "string") {
+            console.error("Invalid newDate in object B:", b);
+            return 0;
+          }
+
+          console.log("Date string before conversion B:", b.newDate);
+          const dateB = new Date(convertDateToISO(b.newDate));
+          console.log("Date after conversion B:", dateB);
+
           return dateB - dateA; // Tri décroissant
         })
         .slice(startAtVal, endAtVal + 1);
-
-      console.log("Data from Firebase:", contactsArray);
     }
 
     callback(contactsArray);
-    console.log("Data from Firebase:", data);
   });
 
   return () => off(contactsRef, "value", listener);
