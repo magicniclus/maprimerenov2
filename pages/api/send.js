@@ -18,7 +18,7 @@ export default async (req, res) => {
       type,
       ageDuBien,
       etapeDuProjet,
-      partnerEmails,
+      entrepriseEmail,
       newDate,
     } = req.body;
 
@@ -39,9 +39,11 @@ export default async (req, res) => {
       })
     );
 
+    console.log(entrepriseEmail);
+
     const data = await resend.emails.send({
       from: "Maprimerenov-info <onboarding@resend.dev>",
-      to: partnerEmails || ["casteranicolas.contact@gmail.com"],
+      to: entrepriseEmail,
       subject: "Nouveau propsect Maprimerenov-info",
       html: emailContent,
     });
@@ -49,6 +51,5 @@ export default async (req, res) => {
     res.status(200).json(data);
   } catch (error) {
     res.status(400).json({ message: error.message, stack: error.stack });
-    res.status(400).json(error);
   }
 };
