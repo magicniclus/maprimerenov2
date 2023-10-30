@@ -10,10 +10,6 @@ const Basic = (props) => {
   const ogImage = props.ogImage;
   const ogUrl = props.ogUrl;
 
-  useEffect(() => {
-    console.log(title, description, keywords, ogImage, ogUrl);
-  }, [title]);
-
   return (
     <>
       <Head>
