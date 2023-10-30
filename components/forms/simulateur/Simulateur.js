@@ -11,12 +11,14 @@ import Inscription from "./etapes/Inscription";
 import ProgressBar from "./ProgressBar";
 import Loader from "../../loader/Loader";
 import { updateDate } from "../../../utils/getDate";
+import { getEmailByEntrepriseId } from "../../../firebase/partnerManager";
 import {
   updateProspect,
   updateUserDataForProspect,
 } from "../../../firebase/dataManager";
 import { useRouter } from "next/router";
 import { addLeadInEntreprise } from "../../../utils/addLeadInEntreprise";
+import { getFirstTwoNumbers } from "../../../utils/getFirstTwoNumbers";
 
 const Simulateur = () => {
   const [card, setCard] = useState(0);
@@ -98,8 +100,28 @@ const Simulateur = () => {
 
       // Vérifiez si entrepriseIds est valide et non nul
       if (entrepriseIds && entrepriseIds.length > 0) {
-        const sendEmailPromises = entrepriseIds.map((entrepriseId) => {
-          const payload = { ...userData, entrepriseId, newDate };
+        const sendEmailPromises = entrepriseIds.map(async (entrepriseId) => {
+          // Obtenir l'email de l'entreprise pour cet entrepriseId
+          let entrepriseEmail;
+          try {
+            entrepriseEmail = await getEmailByEntrepriseId(
+              entrepriseId,
+              getFirstTwoNumbers(userData.codePostal)
+            );
+            console.log("L'email de l'entreprise est:", entrepriseEmail);
+          } catch (error) {
+            console.error("Erreur lors de la récupération de l'email:", error);
+            // Si une erreur se produit lors de la récupération de l'email, retourner
+            return Promise.reject(error);
+          }
+
+          // Intégrez l'email dans le payload
+          const payload = {
+            ...userData,
+            entrepriseId,
+            entrepriseEmail,
+            newDate,
+          };
           console.log("Sending payload:", payload);
           return fetch("/api/send", {
             method: "POST",
@@ -107,6 +129,16 @@ const Simulateur = () => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(payload),
+          }).then((response) => {
+            if (!response.ok) {
+              return response.json().then((err) => {
+                throw new Error(err.message);
+              });
+            } else {
+              return response.json().then((data) => {
+                console.log("API Response:", data);
+              });
+            }
           });
         });
 
