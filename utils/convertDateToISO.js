@@ -1,5 +1,7 @@
-export // Fonction pour convertir votre format de date en format ISO
-const convertDateToISO = (dateStr) => {
+export const convertDateToISO = (dateStr) => {
+  // if (typeof dateStr !== "string") {
+  //   throw new Error("Invalid dateStr passed to convertDateToISO");
+  // }
   const months = {
     janvier: "01",
     février: "02",
@@ -15,6 +17,9 @@ const convertDateToISO = (dateStr) => {
     décembre: "12",
   };
 
+  if (dateStr === undefined) {
+    return "2021-09-01T00:00:00";
+  }
   const [day, monthWord, year, , time] = dateStr.split(" ");
   const month = months[monthWord];
   return `${year}-${month}-${day}T${time}`;
