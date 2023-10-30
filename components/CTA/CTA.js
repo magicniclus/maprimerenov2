@@ -16,12 +16,15 @@ const CTA = () => {
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
-              href="#"
+              href="/simulateur"
               className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               Estimer
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-dark">
+            <a
+              href="/entreprise"
+              className="text-sm font-semibold leading-6 text-dark"
+            >
               Vous êtes un profetionnel <span aria-hidden="true">→</span>
             </a>
           </div>
