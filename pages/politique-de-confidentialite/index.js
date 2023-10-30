@@ -3,7 +3,7 @@ import Basic from "../../layout/Basic";
 
 const index = () => {
   return (
-    <Basic>
+    <Basic title="Maprimerenov-info | Politique de Confidentialité">
       <div className="w-full max-w-[1250px] px-5 py-10 lg:px-20 lg:py-10 mx-auto flex justify-between flex-col text-dark">
         <h1 className="text-4xl font-bold tracking-tight text-dark mb-10">
           Politique de Confidentialité de Maprimerenov
