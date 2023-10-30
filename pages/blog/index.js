@@ -10,7 +10,20 @@ const index = () => {
   }, [posts]);
 
   return (
-    <Basic>
+    <Basic
+      title="Blog MaPrimeRenov-info | Tout sur l'aide MaPrimeRenov" // Titre optimisé pour le SEO
+      ogUrl="https://maprimerenov-info.org/blog"
+      description="Découvrez comment bénéficier de l'aide MaPrimeRenov, les travaux éligibles et les conditions d'obtention à travers nos articles détaillés." // Description optimisée pour le SEO
+      keywords={[
+        "MaPrimeRenov blog",
+        "infos MaPrimeRenov",
+        "travaux éligibles MaPrimeRenov",
+        "conditions MaPrimeRenov",
+        "guide MaPrimeRenov",
+        "conseils rénovation",
+      ]}
+      ogImage="/images/logos/favicon.png" // Une image appropriée pour le blog, assurez-vous d'avoir une telle image pour l'Open Graph
+    >
       <section className="min-h-[calc(100vh-104px)] max-w-[1250px] mx-auto px-5 lg:pb-10 lg:px-20 flex flex-col">
         <div className="flex flex-col items-center">
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-dark text-center">
