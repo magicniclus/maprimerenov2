@@ -15,7 +15,7 @@ const index = () => {
           <br />
           Adresse : 22 rue de Libourne
           <br />
-          Téléphone : 0631420045 E-mail : casteranicolas.contact2@gmail.com
+          Téléphone : 0631420045 E-mail : contact@maprimerenov-info.com
         </p>
 
         <h2 className="mt-5 font-semibold text-xl">Directeur de publication</h2>
@@ -48,7 +48,7 @@ const index = () => {
         <p className="mt-5">
           Pour toute question concernant les présentes mentions légales ou pour
           toute demande concernant le site, vous pouvez contacter par email:
-          casteranicolas.contact2@gmail.com.
+          contact@maprimerenov-info.org.
         </p>
       </div>
     </Basic>
