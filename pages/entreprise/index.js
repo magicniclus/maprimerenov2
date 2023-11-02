@@ -11,8 +11,7 @@ const index = () => {
     <Basic>
       <Hero
         title="Vous êtes une entreprise RGE ?"
-        text="Vous êtes une entreprise RGE et vous douhaitez vous developper ? Devenons partenaire ! 
-    Postulez à notre programme nationnal d’aide à l’habitat et obtenez jusqu’à 40 demandes par jours."
+        text="Vous êtes une entreprise RGE et vous souhaitez vous développer ? Devenez partenaire ! Postulez à notre programme national d’aide à l’habitat et obtenez jusqu’à 40 demandes par jour."
         buttonValue="Vous êtes un particulier"
         thirstButtonValue="Devenir partenaire"
         firstButtonLink="#entrepriseForm"
