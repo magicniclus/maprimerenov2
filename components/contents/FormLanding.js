@@ -24,8 +24,8 @@ const FormLanding = () => {
             Depuis le 1er octobre 2020, tous les propriétaires peuvent en
             bénéficier, quels que soient leurs revenus. Les propriétaires
             bailleurs peuvent déposer leur dossier de demande d’aide depuis le
-            1er juillet 2021. En 2021 plus de 644 000 demandes d’aide ont été
-            accordé par l’État. Utilisez notre simulateur MaPrimeRenov’ pour
+            1er juillet 2021. En 2021, plus de 644 000 demandes d’aide ont été
+            accordées par l’État. Utilisez notre simulateur MaPrimeRenov’ pour
             connaître votre éligibilité.
           </p>
         </div>
@@ -41,8 +41,8 @@ const FormLanding = () => {
           <p className="mt-5 text-xs text-dark">
             Bénéficiez du montant maximum subventionné pour vous. Il vous suffit
             de tester l’éligibilité de votre projet ! Utilisez notre simulateur
-            GRATUIT et sans conditions de revenus pour tester votre éligibilité
-            dès maintenant.
+            MaPrimeRenov’ GRATUIT et sans conditions de revenus pour tester
+            votre éligibilité dès maintenant.
           </p>
         </div>
         <div className="lg:mt-24 mt-10">
@@ -53,8 +53,9 @@ const FormLanding = () => {
             Depuis le 1er octobre 2020, tous les propriétaires peuvent en
             bénéficier, quels que soient leurs revenus. Les propriétaires
             bailleurs peuvent déposer leur dossier de demande d’aide depuis le
-            1er juillet 2021. En 2021 plus de 644 000 demandes d’aide ont été
-            accordé par l’État.
+            1er juillet 2021. En 2021, plus de 644 000 demandes d’aide ont été
+            accordées par l’État. Utilisez notre simulateur MaPrimeRenov’ pour
+            connaître votre éligibilité.
           </p>
         </div>
       </div>
