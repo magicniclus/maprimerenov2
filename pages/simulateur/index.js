@@ -2,7 +2,7 @@ import React from "react";
 import Cards from "../../components/contents/Cards";
 import FormLanding from "../../components/contents/FormLanding";
 import Video from "../../components/contents/Video";
-import HeaderLanding from "../../components/headers/headerLanding";
+import HeaderLanding from "../../components/headers/HeaderLanding";
 import Basic from "../../layout/Basic";
 
 const index = () => {
