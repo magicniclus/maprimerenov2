@@ -16,7 +16,7 @@ const Video = () => {
     <div className="w-full max-w-[1250px] px-5 py-10 lg:px-20 lg:py-24 mx-auto flex justify-between items-center bg-light lg:flex-row flex-col">
       <div className="lg:w-5/12 w-full flex flex-col items-start">
         <h2 className="text-3xl text-dark font-semibold mb-10">
-          Nous vous accompagnons dans chacune des étapes de votre projet
+          Nous vous accompagnons dans chacune des étapes de votre projet :
         </h2>
         {step.map((item) => (
           <div className="flex items-center mt-3">
