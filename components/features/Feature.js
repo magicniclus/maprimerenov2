@@ -10,22 +10,22 @@ const features = [
   {
     name: "Connaitre vos aides",
     description:
-      "Nous réalisons des audit de vos projet, montons vos dossiers, cherchons les meilleurs artisans disponible et obtenons vos subvensions",
-    href: "#",
+      "Découvrez les différentes aides disponibles et comment elles peuvent bénéficier à vos projets d'amélioration de l'habitat. Laissez-nous vous guider à travers le processus.",
+    href: "/simulateur",
     icon: CheckIcon,
   },
   {
-    name: "Devenir partnenaire",
+    name: "Devenir partenaire",
     description:
-      "Nous réalisons des audit de vos projet, montons vos dossiers, cherchons les meilleurs artisans disponible et obtenons vos subvensions",
-    href: "#",
+      "Rejoignez notre réseau de partenaires dédiés et bénéficiez d'une collaboration étroite pour aider encore plus de personnes à réaliser leurs projets avec le soutien des subventions disponibles.",
+    href: "/entreprise",
     icon: CheckIcon,
   },
   {
     name: "Nos partenaires",
     description:
-      "Nous réalisons des audit de vos projet, montons vos dossiers, cherchons les meilleurs artisans disponible et obtenons vos subvensions",
-    href: "#",
+      "Découvrez les entreprises et artisans avec lesquels nous travaillons étroitement pour vous fournir des services de qualité et vous aider à obtenir les meilleures subventions pour vos projets.",
+    href: "/entreprise",
     icon: CheckIcon,
   },
 ];
@@ -41,9 +41,9 @@ const Feature = () => {
             Un service unique en France
           </p>
           <p className="mt-6 text-lg leading-8 text-dark">
-            Nous réalisons des audit de vos projet, montons vos dossiers,
-            cherchons les meilleurs artisans disponible et obtenons vos
-            subvensions
+            Nous réalisons des audits de vos projets, montons vos dossiers,
+            cherchons les meilleurs artisans disponibles et obtenons vos
+            subventions.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
