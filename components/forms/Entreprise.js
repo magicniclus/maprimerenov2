@@ -91,18 +91,16 @@ const Entreprise = () => {
           Comment devenir partenaire MaPrimeRenov-Info.org ?
         </h2>
         <p className="mt-5 text-dark">
-          Vous êtes une entreprise certifié RGE ? vous cherchez à développer
+          Vous êtes une entreprise certifiée RGE ? Vous cherchez à développer
           durablement votre activité ? Vous souhaitez obtenir de nouveaux
-          clients ? Nous sommes là pour vous.
+          clients ? Nous sommes là pour vous aider.
         </p>
         <ul className="text-dark mt-10">
-          <li className="">1 - Vous envoyez votre demande</li>
-          <li className="mt-5">
-            2 - Vous nous transmettez les documents demandés
-          </li>
-          <li className="mt-5">3 - Nous validons votre projet</li>
-          <li className="mt-5">4 - Nous signons notre partenariat</li>
-          <li className="mt-5">5 - Vous recevez vos demandes</li>
+          <li className="">1 - Envoyez votre demande.</li>
+          <li className="mt-5">2 - Transmettez-nous les documents demandés.</li>
+          <li className="mt-5">3 - Nous validons votre candidature.</li>
+          <li className="mt-5">4 - Nous signons notre partenariat.</li>
+          <li className="mt-5">5 - Vous recevez vos demandes.</li>
         </ul>
         <div className="mt-10">
           <h2 className="text-xl text-dark font-semibold">
