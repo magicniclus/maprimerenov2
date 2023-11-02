@@ -16,6 +16,10 @@ export default function BlogPost({ post }) {
     );
   }
 
+  if (!post) {
+    return <div>Article non trouvé</div>;
+  }
+
   return (
     <Basic
       title={post.title}
@@ -156,9 +160,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = posts.find((post) => post.slug === params.slug);
-  console.log("Fetched post: ", post);
 
-  // Si le post n'est pas trouvé, redirigez vers une page 404
   if (!post) {
     return {
       notFound: true,
