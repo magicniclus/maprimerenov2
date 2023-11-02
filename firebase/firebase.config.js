@@ -2,7 +2,7 @@ import { initializeApp, getApps } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyANjQ3xCyjveltI081x5ceT_Xv4cUylsCc",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "maprimerenov-58fdf.firebaseapp.com",
   databaseURL:
     "https://maprimerenov-58fdf-default-rtdb.europe-west1.firebasedatabase.app",
