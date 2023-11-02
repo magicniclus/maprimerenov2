@@ -16,11 +16,11 @@ const Hero = (props) => {
                   </a>
                 </div>
                 <h1 className="mt-10 text-4xl font-bold tracking-tight text-dark sm:text-6xl">
-                  {props.title || " Le site spécialisé Maprimerenov’"}
+                  {props.title || "Le site spécialisé MaPrimeRenov’"}
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-dark">
                   {props.text ||
-                    "Nous accompagnons les personnes dans l’obtention des aide de l’état Maprimerenov’ ainsi que dans la réalisation de leurs travaux en sélectionnant des entreprise RGE spécialisé dans les prestations subventionnées."}
+                    "Nous accompagnons les particuliers dans l’obtention des aides de l'État MaPrimeRenov’, ainsi que dans la réalisation de leurs travaux en sélectionnant des entreprises RGE spécialisées dans les prestations subventionnées."}
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
@@ -33,7 +33,7 @@ const Hero = (props) => {
                     href={props.secondButtonLink || "/entreprise"}
                     className="text-sm font-semibold leading-6 text-dark"
                   >
-                    {props.buttonValue || "Vous êtes un profetionnel"}{" "}
+                    {props.buttonValue || "Vous êtes un professionnel "}{" "}
                     <span aria-hidden="true">→</span>
                   </a>
                 </div>
