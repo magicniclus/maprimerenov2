@@ -156,6 +156,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = posts.find((post) => post.slug === params.slug);
+  console.log("Fetched post: ", post);
 
   // Si le post n'est pas trouvé, redirigez vers une page 404
   if (!post) {
