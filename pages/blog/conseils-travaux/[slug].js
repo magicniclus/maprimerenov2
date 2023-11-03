@@ -5,8 +5,12 @@ import Basic from "../../../layout/Basic";
 import CTA from "../../../components/CTA/CTA";
 import { ClockIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 
-export default function BlogPost({ post }) {
+const findPostBySlug = (slug) => posts.find((post) => post.slug === slug);
+
+export default function BlogPost() {
   const router = useRouter();
+  const { slug } = router.query;
+  const post = findPostBySlug(slug);
 
   if (router.isFallback) {
     return (
@@ -17,7 +21,11 @@ export default function BlogPost({ post }) {
   }
 
   if (!post) {
-    return <div>Article non trouvé</div>;
+    return (
+      <div className="h-screen w-screen bg-white relative">
+        <Loader />
+      </div>
+    );
   }
 
   return (
@@ -150,27 +158,27 @@ export default function BlogPost({ post }) {
   );
 }
 
-export async function getStaticPaths() {
-  const paths = posts.map((post) => ({
-    params: { slug: post.slug },
-  }));
+// export async function getStaticPaths() {
+//   const paths = posts.map((post) => ({
+//     params: { slug: post.slug },
+//   }));
 
-  return { paths, fallback: true };
-}
+//   return { paths, fallback: true };
+// }
 
-export async function getStaticProps({ params }) {
-  const post = posts.find((post) => post.slug === params.slug);
+// export async function getStaticProps({ params }) {
+//   const post = posts.find((post) => post.slug === params.slug);
 
-  if (!post) {
-    return {
-      notFound: true,
-    };
-  }
+//   if (!post) {
+//     return {
+//       notFound: true,
+//     };
+//   }
 
-  return {
-    props: {
-      post,
-    },
-    revalidate: 1,
-  };
-}
+//   return {
+//     props: {
+//       post,
+//     },
+//     revalidate: 1,
+//   };
+// }
