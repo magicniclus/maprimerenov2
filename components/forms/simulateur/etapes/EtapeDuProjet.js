@@ -56,8 +56,8 @@ const EtapeDuProjet = () => {
       />
       <LittleCardWithImage
         src="/images/icons/devis.png"
-        alt="Je vais signer unx devis"
-        title="Je vais signer unx devis"
+        alt="Je vais signer un devis"
+        title="Je vais signer un devis"
         onClick={() => clickManager(3)}
         selectedValue={cardSelected}
         value={3}
