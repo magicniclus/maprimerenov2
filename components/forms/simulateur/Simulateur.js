@@ -21,6 +21,8 @@ import { addLeadInEntreprise } from "../../../utils/addLeadInEntreprise";
 import { getFirstTwoNumbers } from "../../../utils/getFirstTwoNumbers";
 
 const Simulateur = () => {
+  // Le simulateur
+
   const [card, setCard] = useState(0);
   const [showLoader, setShowLoader] = useState(false);
   const dispatch = useDispatch();
@@ -123,7 +125,7 @@ const Simulateur = () => {
             newDate,
           };
           console.log("Sending payload:", payload);
-          return fetch("/api/send", {
+          return fetch("../api/send", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
